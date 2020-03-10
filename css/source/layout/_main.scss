@@ -1375,7 +1375,9 @@ a.button {
   &__cover {
     @extend %heroHeight;
     &__img {
-      background-image: url("/img/youth-cover.png");
+      background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url("/img/youth-cover.png");
+
       height: 100%;
       background-size: cover;
       background-position: center center;
@@ -1405,8 +1407,6 @@ a.button {
       position: absolute;
       z-index: 1;
       @extend %rightBottom;
-
-      left: 10%;
       bottom: -5%;
     }
   }
@@ -1654,7 +1654,7 @@ a.button {
 .more-issues {
   &__list {
     @extend %marginLeft;
-    position: absolute;
+
     z-index: 1;
     @include media("<=medium") {
       padding-left: 10px;
@@ -1714,23 +1714,6 @@ a.button {
           }
         }
       }
-    }
-  }
-  .issue-image {
-    background-image: url("/img/more-issues.png");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    filter: brightness(50%);
-    height: 80vh;
-    @include media("<=large") {
-      height: 60vh;
-    }
-    @include media("<=medium") {
-      height: 75vh;
-    }
-    @include media("<=small") {
-      height: 60vh;
     }
   }
 }
