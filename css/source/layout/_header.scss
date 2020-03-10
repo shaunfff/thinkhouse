@@ -59,6 +59,9 @@
       a {
         width: 20px;
       }
+      @include media("<=medium") {
+        // left: -10%;
+      }
     }
   }
 
