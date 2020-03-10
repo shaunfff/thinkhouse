@@ -275,17 +275,25 @@ img {
       overflow: hidden;
 
       &__body {
+        height: 200px;
         background: #fff;
         display: flex;
         flex-direction: column;
+        align-content: flex-end;
         padding: 20px 0 0 20px;
         @include media("<large") {
-          height: 120px;
+          height: 140px;
           padding: 10px 0 0 10px;
         }
         @include media("<medium") {
           height: 100px;
           padding: 10px 0 0 10px;
+        }
+        h3 {
+          height: 70%;
+        }
+        .card__footer {
+          justify-self: flex-end;
         }
       }
 
@@ -518,6 +526,7 @@ img {
     }
     @include media("<medium") {
       width: 100px;
+      height: 40px;
     }
     @include media("<small") {
       height: 30px;
@@ -1137,7 +1146,7 @@ a.button {
 }
 
 .grey-bg {
-  background-color: #f6f3f3 !important;
+  background-color: #f5f5f5 !important;
   @include media("<=large") {
     padding: 0px !important;
   }
@@ -1157,7 +1166,7 @@ a.button {
     @extend %marginLeft;
     font-weight: $demi;
     color: $dark-grey;
-    padding: 20px 0 20px 0;
+    padding: 20px 0 0;
     @include media("<=medium") {
       color: $white;
     }
@@ -1168,10 +1177,10 @@ a.button {
   margin-left: 90px;
   padding: 5% 0 10%;
   @include media("<=hi") {
-    margin-left: 60px;
+    margin-left: 40px;
   }
   @include media("<=large") {
-    margin-left: 40px;
+    margin-left: 20px;
   }
   @include media("<=medium") {
     margin-left: 0px;
@@ -1179,29 +1188,40 @@ a.button {
 
   &__card {
     display: flex;
-    align-items: center;
     margin: 0 0 5% 0;
     background-color: $white;
     width: 95%;
     position: relative;
+    height: 250px;
+    @include media("<=large") {
+      height: 180px;
+    }
     @include media("<=medium") {
       width: 100%;
+      height: 130px;
     }
 
     &--text {
+      width: 100%;
       margin-left: 50px;
+      display: flex;
+      flex-direction: column;
       @include media("<=hi") {
         margin-left: 40px;
       }
       @include media("<=large") {
-        margin-left: 20px;
+        margin-left: 30px;
       }
       @include media("<=medium") {
-        margin-left: 10px;
+        margin-left: 20px;
       }
     }
     .card__footer {
-      padding: 20px 10px 0 0;
+      height: 10%;
+      padding: 20px 10px 10px 0;
+      @include media("<=small") {
+        padding: 0px 10px 10px 0;
+      }
 
       a {
         color: $black;
@@ -1224,6 +1244,7 @@ a.button {
       background-image: url(/img/Arrow.svg);
       background-position: center;
       background-repeat: no-repeat;
+
       @include media("<=medium") {
         display: none;
       }
@@ -1234,32 +1255,29 @@ a.button {
       @extend %medium-card;
       font-weight: $demi;
       color: $dark-grey;
+      @include media("<=medium") {
+        padding-top: 10px;
+      }
     }
     p {
       color: $dark-grey;
       @extend %xsmall;
       line-height: 1.4;
       @extend %lineLength;
+      height: 50%;
+      @include media("<=large") {
+        height: 40%;
+      }
     }
     &--img {
-      width: 50%;
-
       background-image: url("/img/search-1.png");
       background-position: center;
       background-repeat: no-repeat;
-      height: 250px;
-      @include media("<=hi") {
-        height: 200px;
-      }
-      @include media("<=large") {
-        height: 150px;
-      }
-      @include media("<=medium") {
-        height: 100px;
-        margin: 30px 0 30px 0;
-      }
-      @include media("<=small") {
-        height: 75px;
+      background-size: cover;
+      display: inline-block;
+      width: 50%;
+      @include media("<medium") {
+        width: 50%;
       }
     }
   }
@@ -1450,15 +1468,13 @@ a.button {
           content: "";
           position: absolute;
           display: inline-block;
-          width: 1.5em;
-          height: 1.5em;
           background-image: url(/img/Arrow.svg);
-          background-position: 80% 45%;
           background-repeat: no-repeat;
-          @include media("<medium") {
-            width: 1em;
-            height: 1em;
-          }
+          background-size: 100% 100%;
+          background-position: 50% 50%;
+          transform: translate(50%, 18%);
+          width: 1em;
+          height: 1em;
         }
       }
     }
@@ -1860,10 +1876,11 @@ a.button {
             width: 1em;
             height: 1em;
             background-image: url(/img/Arrow.svg);
+            background-size: 100% 100%;
+            transform: translate(50%, 18%);
             filter: invert(100%);
             background-position: 50% 45%;
             background-repeat: no-repeat;
-            transform: translateX(8px);
           }
         }
       }
