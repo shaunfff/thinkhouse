@@ -202,7 +202,7 @@ img {
     font-weight: $demi;
     align-self: flex-start;
     @extend %marginLeft;
-    padding-bottom: 5px;
+    padding-bottom: 2%;
   }
   &__tags {
     display: flex;
@@ -534,17 +534,40 @@ img {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    @include media("<small") {
+      flex-direction: column;
+    }
     &--links {
       width: 50%;
       a {
         color: $white;
-        margin: 0 3% 0 0;
+        margin: 0 3% 10% 0;
       }
     }
     ul {
       padding-right: 6%;
       li {
-        margin: 0 0 2% 0;
+        margin: 0 0 0 0;
+      }
+      a {
+        display: inline-flex;
+        padding: 12% 18% 10% 0;
+        @include media("<large") {
+          padding: 10% 14% 10% 0;
+        }
+        @include media("<medium") {
+          padding: 8% 8% 10% 0;
+        }
+        @include media("<small") {
+          padding: 2% 5% 10% 0;
+        }
+        img {
+          filter: invert(1);
+          width: 25px;
+          @include media("<medium") {
+            width: 18px;
+          }
+        }
       }
     }
   }

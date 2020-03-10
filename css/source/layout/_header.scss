@@ -35,6 +35,9 @@
     width: 60px;
     max-width: 100%;
     z-index: 1000;
+    @include media("<small") {
+      position: absolute;
+    }
     a {
       background: $mid-grey;
       display: block;
@@ -48,6 +51,13 @@
     }
     @include media("<=#{$width-outer-max}") {
       left: 0;
+      width: 50px;
+      a {
+        width: 50px;
+      }
+    }
+    @include media("<=large") {
+      left: 0;
       width: 40px;
       a {
         width: 40px;
@@ -55,12 +65,16 @@
     }
     @include media("<=medium") {
       left: 0;
-      width: 20px;
+      width: 30px;
       a {
-        width: 20px;
+        width: 30px;
       }
-      @include media("<=medium") {
-        // left: -10%;
+      @include media("<=small") {
+        left: 0;
+        width: 25px;
+        a {
+          width: 25px;
+        }
       }
     }
   }

@@ -22,10 +22,13 @@ footer {
 .wrapper {
   padding: 0 0 0 60px;
   @include media("<=#{$width-outer-max}") {
+    padding: 0 0 0 50px;
+  }
+  @include media("<=large") {
     padding: 0 0 0 40px;
   }
   @include media("<=medium") {
-    padding: 0 0 0 20px;
+    padding: 0 0 0 30px;
   }
   @include media("<=small") {
     padding: 0 0 0 0px;
