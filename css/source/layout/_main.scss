@@ -275,9 +275,9 @@ img {
       overflow: hidden;
 
       &__body {
-        height: 160px;
         background: #fff;
-
+        display: flex;
+        flex-direction: column;
         padding: 20px 0 0 20px;
         @include media("<large") {
           height: 120px;
@@ -407,7 +407,7 @@ img {
   &__block {
     max-height: 540px;
     padding: 8% 0 8% 0;
-    background-color: #f2f2f2;
+    background-color: #f5f5f5;
     display: flex;
     flex-direction: column;
     @include media("<medium") {
@@ -496,6 +496,7 @@ img {
   }
 
   .button {
+    @extend %xsmall;
     @extend %marginLeft;
     overflow: hidden;
     display: flex;
@@ -503,13 +504,14 @@ img {
     justify-content: center;
     background: $btn-white;
     color: $black;
-    font-size: $f-xsmall;
+
     font-weight: $heavy;
     text-transform: uppercase;
     letter-spacing: -0.01em;
 
     height: 50px;
     width: 150px;
+
     @include media("<large") {
       height: 50px;
       width: 120px;
@@ -518,7 +520,7 @@ img {
       width: 100px;
     }
     @include media("<small") {
-      height: 40px;
+      height: 30px;
       width: 80px;
     }
   }
@@ -1652,6 +1654,7 @@ a.button {
 }
 
 .more-issues {
+  background-color: #f5f5f5;
   &__list {
     @extend %marginLeft;
 
@@ -1661,11 +1664,14 @@ a.button {
     }
 
     h5 {
-      color: $white;
+      color: $black;
       font-weight: $heavy;
       text-transform: uppercase;
       @extend %large-feature;
-      padding: 5% 0 2% 0;
+      padding: 10% 0 2% 0;
+      @include media("<medium") {
+        transform: translateX(-4%);
+      }
     }
     ul {
       @extend %body-list;
@@ -1684,7 +1690,7 @@ a.button {
         }
         a {
           display: flex;
-          color: $white;
+          color: $black;
 
           h6 {
             position: relative;
@@ -1699,7 +1705,7 @@ a.button {
             }
             &::before {
               content: "";
-              border-color: transparent rgb(255, 255, 255);
+              border-color: transparent rgb(0, 0, 0);
               border-style: solid;
               border-width: 0.2em 0 0.2em 0.3em;
               display: block;
