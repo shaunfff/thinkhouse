@@ -1,0 +1,26 @@
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.section {
+  padding: 5vw 15vw;
+}
+
+.image {
+  overflow: hidden;
+}
+.image__inner {
+  overflow: hidden;
+}
+
+.image__inner2 {
+  overflow: hidden;
+}
+
+.box {
+  width: 10rem;
+  height: 10rem;
+  background-color: #000;
+}

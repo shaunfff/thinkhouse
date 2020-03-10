@@ -1,0 +1,199 @@
+.header {
+  &__menu-toggle {
+    background: rgb(255, 255, 255);
+    display: inherit;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+
+    @include media(">medium") {
+      display: none;
+    }
+    a {
+      @include menu-icon(
+        $width: 20px,
+        $height: 16px,
+        $bar: 2px,
+        $color: #333,
+        $reverse-color: $feature-col,
+        $transition: 0.25s
+      );
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    z-index: 1001;
+  }
+  &__logo {
+    position: fixed;
+    left: calc((100% - #{$width-outer-max}) / 2);
+    top: 0;
+    width: 60px;
+    max-width: 100%;
+    z-index: 1000;
+    a {
+      background: $mid-grey;
+      display: block;
+      text-indent: -999em;
+      width: 60px;
+
+      img {
+        display: flex;
+        width: inherit;
+      }
+    }
+    @include media("<=#{$width-outer-max}") {
+      left: 0;
+      width: 40px;
+      a {
+        width: 40px;
+      }
+    }
+    @include media("<=medium") {
+      left: 0;
+      width: 20px;
+      a {
+        width: 20px;
+      }
+    }
+  }
+
+  &__search-prompt {
+    position: fixed;
+    right: calc((100% - #{$width-outer-max}) / 2);
+    top: 0;
+    width: 60px;
+    max-width: 100%;
+    z-index: 1000;
+    a {
+      background: rgb(255, 255, 255);
+      display: block;
+      text-indent: -999em;
+      width: 60px;
+      height: 60px;
+      background-image: url("/img/search.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: auto;
+    }
+    @include media("<=#{$width-outer-max}") {
+      right: 0;
+      width: 40px;
+      a {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    @include media("<=medium") {
+      display: none;
+    }
+  }
+
+  &__pnav {
+    // Mobile Menu
+    transform: translateY(100vh);
+    background: $white;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 0;
+    z-index: 0;
+    opacity: 0;
+    top: -200vh;
+    left: 0;
+    z-index: 101;
+    &.open {
+      transform: translateY(0);
+      opacity: 1;
+      height: 100vh;
+      overflow: scroll;
+      z-index: 501;
+      top: 0;
+      left: 0;
+      padding-left: 20%;
+      padding-top: 80px;
+    }
+    nav {
+      @extend %small;
+      font-weight: $heavy;
+      margin: 0 0 0 0;
+      padding: 0;
+      ul {
+        display: flex;
+        flex-direction: column;
+        li {
+          margin-right: 10px;
+          a {
+            text-transform: uppercase;
+            color: $orange;
+          }
+        }
+      }
+    }
+
+    // Large Menu
+    @include media(">=medium") {
+      background: none;
+      width: 100%;
+      opacity: 1;
+      transform: translateY(0);
+      left: 8%;
+      top: 0;
+      padding-top: 0;
+      width: 80%;
+      height: 40px;
+      &.open {
+        padding-top: 0;
+        height: 40px;
+      }
+
+      nav {
+        width: 520px;
+        max-width: 100%;
+        margin: 0 0 0 0;
+        padding: 0;
+        ul {
+          display: flex;
+          height: 40px;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          li {
+            margin-right: 10px;
+            a {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+    @include media(">=#{$width-outer-max}") {
+      height: 60px;
+      &.open {
+        padding-top: 0;
+        height: 60px;
+      }
+      nav {
+        ul {
+          height: 60px;
+        }
+      }
+    }
+  }
+}
+
+.header__menu-toggle a:hover span {
+  background: rgb(0, 0, 0);
+}
+
+.header__logo a {
+  background: none;
+}
+
+.orange-bg {
+  background-color: $orange;
+}

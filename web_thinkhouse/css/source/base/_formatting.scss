@@ -1,0 +1,449 @@
+strong {
+  font-weight: bold;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: $body-color;
+  color: $body-font-color;
+  font-family: $body-font;
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1;
+  font-kerning: normal;
+  // font-smoothing: antialiased;
+  font-weight: 300;
+  line-height: $body-line-height;
+  text-rendering: optimizeLegibility;
+  // @include font-smoothing;
+}
+
+hr {
+  border-top: 1px solid rgba($dark-grey, 0.2);
+  border-bottom: none;
+  height: 0;
+}
+
+img {
+  display: block;
+}
+
+body a,
+body a:link,
+body a:visited,
+body a:focus,
+body a:hover,
+body a:active {
+  transition: all $time-transition;
+  text-decoration: none;
+}
+
+em {
+  font-style: italic;
+}
+
+%upper {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.upper {
+  @extend %upper;
+}
+.nomargin {
+  margin-bottom: 0;
+}
+.centered {
+  text-align: center;
+}
+
+/* @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) */
+
+// $f-xmini: 12px;
+// $f-mini: 14px;
+// $f-xxxsmall: 16px;
+// $f-xxsmall: 18px;
+// $f-xsmall: 20px;
+// $f-small: 22px;
+// $f-body: 24px;
+// $f-medium: 32px;
+// $f-large: 48px;
+// $f-xlarge: 58px;
+// $f-xxlarge: 68px;
+// $f-xxxlarge: 120px;
+// $f-youth-feature: 96px;
+
+%xxxlarge-feature {
+  @include fluid-type($bp-small, $bp-hi, $f-large, $f-xxxlarge);
+  line-height: 1.1;
+  @include media("<=medium") {
+    line-height: 1.2;
+  }
+}
+
+%youth-feature {
+  @include fluid-type($bp-small, $bp-hi, $f-large, $f-youth-feature);
+  line-height: 1.1;
+  @include media("<=medium") {
+    line-height: 1.2;
+  }
+}
+
+%xxxlarge {
+  @include fluid-type($bp-small, $bp-hi, $f-medium, $f-xxxlarge);
+  line-height: 1.1;
+}
+
+%xxlarge-feature {
+  @include fluid-type($bp-small, $bp-hi, $f-large, $f-xxlarge);
+  font-family: $feature-font;
+  font-weight: lighter;
+  line-height: 1.2;
+  @include media("<=medium") {
+    line-height: 1.4;
+  }
+}
+
+%xxlarge-next {
+  @include fluid-type($bp-small, $bp-hi, $f-body, $f-xxlarge);
+  line-height: 1.1;
+}
+
+%xxlarge {
+  @include fluid-type($bp-small, $bp-hi, $f-small, $f-xxlarge);
+  font-weight: lighter;
+  line-height: 1.2;
+  @include media("<=medium") {
+    line-height: 1.4;
+  }
+}
+
+%xlarge-feature {
+  @include fluid-type($bp-small, $bp-hi, $f-medium, $f-xlarge);
+  font-family: $feature-font;
+  font-weight: lighter;
+}
+
+%xlarge {
+  @include fluid-type($bp-small, $bp-hi, $f-medium, $f-xlarge);
+}
+
+%large-list {
+  @include fluid-type($bp-small, $bp-hi, $f-xxsmall, $f-large);
+}
+
+%xlarge-list {
+  @include fluid-type($bp-small, $bp-hi, $f-body, $f-xlarge);
+}
+
+%xlarge-quote {
+  @include fluid-type($bp-small, $bp-hi, $f-xsmall, $f-xlarge);
+}
+
+%large-feature {
+  @include fluid-type($bp-small, $bp-hi, $f-body, $f-large);
+  font-family: $feature-font;
+  font-weight: lighter;
+}
+
+%large {
+  @include fluid-type($bp-small, $bp-hi, $f-body, $f-large);
+}
+
+%body-feature {
+  @include fluid-type($bp-small, $bp-hi, $f-small, $f-body);
+}
+
+%body {
+  @include fluid-type($bp-small, $bp-hi, $f-small, $f-medium);
+}
+
+%body-list {
+  @include fluid-type($bp-small, $bp-hi, $f-xxxsmall, $f-body-list);
+}
+
+%body-small {
+  @include fluid-type($bp-small, $bp-hi, $f-xxxsmall, $f-medium);
+}
+
+%body-article {
+  @include fluid-type($bp-small, $bp-hi, $f-xxxsmall, $f-body);
+}
+
+%medium-feature {
+  @include fluid-type($bp-small, $bp-hi, $f-xxsmall, $f-medium);
+}
+
+%medium-card {
+  @include fluid-type($bp-small, $bp-hi, $f-mini, $f-medium);
+}
+%medium {
+  @include fluid-type($bp-small, $bp-hi, $f-xxsmall, $f-medium);
+}
+%small {
+  @include fluid-type($bp-small, $bp-hi, $f-mini, $f-small);
+}
+%xxsmall {
+  @include fluid-type($bp-small, $bp-hi, $f-mini, $f-xxsmall);
+}
+
+%xsmall-quote-details {
+  @include fluid-type($bp-small, $bp-hi, $f-xmini, $f-body);
+}
+%small-tag {
+  @include fluid-type($bp-small, $bp-hi, $f-xmini, $f-xsmall);
+}
+
+%xsmall {
+  @include fluid-type($bp-small, $bp-hi, $f-xmini, $f-xsmall);
+}
+
+%marginLeft {
+  margin-left: 90px;
+
+  @include media("<=hi") {
+    margin-left: 60px;
+  }
+  @include media("<=large") {
+    margin-left: 40px;
+  }
+  @include media("<=medium") {
+    margin-left: 20px;
+  }
+  @include media("<=small") {
+    margin-left: 20px;
+  }
+}
+
+%rightBottom {
+  right: 60px;
+  bottom: -30px;
+  @include media("<=hi") {
+    right: 20px;
+    bottom: -30px;
+  }
+  @include media("<=large") {
+    right: 15px;
+    bottom: -20px;
+  }
+}
+
+%lineLength {
+  width: 70%;
+  @include media("<=hi") {
+    width: 85%;
+  }
+  @include media("<=large") {
+    width: 90%;
+  }
+}
+
+%bottom-padding-xlarge {
+  padding-bottom: 200px;
+
+  @include media("<=hi") {
+    padding-bottom: 160px;
+  }
+  @include media("<=large") {
+    padding-bottom: 120px;
+  }
+  @include media("<=medium") {
+    padding-bottom: 80px;
+  }
+  @include media("<=small") {
+    padding-bottom: 40px;
+  }
+}
+
+%bottom-padding-large {
+  padding-bottom: 150px;
+
+  @include media("<=hi") {
+    padding-bottom: 120px;
+  }
+  @include media("<=large") {
+    padding-bottom: 90px;
+  }
+  @include media("<=medium") {
+    padding-bottom: 60px;
+  }
+  @include media("<=small") {
+    padding-bottom: 50px;
+  }
+}
+
+%bottom-padding-medium {
+  padding-bottom: 90px;
+
+  @include media("<=hi") {
+    padding-bottom: 60px;
+  }
+  @include media("<=large") {
+    padding-bottom: 50px;
+  }
+  @include media("<=medium") {
+    padding-bottom: 45px;
+  }
+  @include media("<=small") {
+    padding-bottom: 40px;
+  }
+}
+
+%bottom-padding-small {
+  padding-bottom: 60px;
+
+  @include media("<=hi") {
+    padding-bottom: 50px;
+  }
+  @include media("<=large") {
+    padding-bottom: 40px;
+  }
+  @include media("<=medium") {
+    padding-bottom: 30px;
+  }
+  @include media("<=small") {
+    padding-bottom: 20px;
+  }
+}
+
+%bottom-padding-xsmall {
+  padding-bottom: 40px;
+
+  @include media("<=hi") {
+    padding-bottom: 30px;
+  }
+  @include media("<=large") {
+    padding-bottom: 20px;
+  }
+  @include media("<=medium") {
+    padding-bottom: 15px;
+  }
+  @include media("<=small") {
+    padding-bottom: 10px;
+  }
+}
+
+%top-padding-xlarge {
+  padding-top: 200px;
+
+  @include media("<=hi") {
+    padding-top: 160px;
+  }
+  @include media("<=large") {
+    padding-top: 120px;
+  }
+  @include media("<=medium") {
+    padding-top: 80px;
+  }
+  @include media("<=small") {
+    padding-top: 40px;
+  }
+}
+
+%top-padding-large {
+  padding-top: 150px;
+
+  @include media("<=hi") {
+    padding-top: 120px;
+  }
+  @include media("<=large") {
+    padding-top: 90px;
+  }
+  @include media("<=medium") {
+    padding-top: 60px;
+  }
+  @include media("<=small") {
+    padding-top: 50px;
+  }
+}
+
+%top-padding-medium {
+  padding-top: 90px;
+
+  @include media("<=hi") {
+    padding-top: 60px;
+  }
+  @include media("<=large") {
+    padding-top: 50px;
+  }
+  @include media("<=medium") {
+    padding-top: 45px;
+  }
+  @include media("<=small") {
+    padding-top: 40px;
+  }
+}
+
+%top-padding-small {
+  padding-top: 60px;
+
+  @include media("<=hi") {
+    padding-top: 50px;
+  }
+  @include media("<=large") {
+    padding-top: 40px;
+  }
+  @include media("<=medium") {
+    padding-top: 30px;
+  }
+  @include media("<=small") {
+    padding-top: 20px;
+  }
+}
+
+%heroHeight {
+  height: 68vh;
+
+  @include media("<=hi") {
+    height: 50vh;
+  }
+  @include media("<=large") {
+    height: 40vh;
+  }
+  @include media("<=medium") {
+    height: 35vh;
+  }
+  @include media("<=small") {
+    height: 30vh;
+  }
+}
+
+%marginBottom {
+  margin-bottom: 60px;
+
+  @include media("<=hi") {
+    margin-bottom: 50px;
+  }
+  @include media("<=large") {
+    margin-bottom: 40px;
+  }
+  @include media("<=medium") {
+    margin-bottom: 40px;
+  }
+  @include media("<=small") {
+    margin-bottom: 30px;
+  }
+}
+
+%top-padding-xsmall {
+  padding-top: 40px;
+
+  @include media("<=hi") {
+    padding-top: 30px;
+  }
+  @include media("<=large") {
+    padding-top: 20px;
+  }
+  @include media("<=medium") {
+    padding-top: 15px;
+  }
+  @include media("<=small") {
+    padding-top: 10px;
+  }
+}

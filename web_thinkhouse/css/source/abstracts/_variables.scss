@@ -1,0 +1,83 @@
+$sans: "franklin-gothic-urw";
+
+$feature-font: $sans;
+$body-font: $sans;
+$body-line-height: 1.4;
+$feature-line-height: 1.1;
+$base-margin: 1rem * $body-line-height;
+
+$f-xmini: 12px;
+$f-mini: 14px;
+$f-xxxsmall: 16px;
+$f-xxsmall: 18px;
+$f-xsmall: 20px;
+$f-small: 22px;
+$f-body: 24px;
+$f-body-list: 28px;
+$f-medium: 32px;
+$f-large: 48px;
+$f-xlarge: 58px;
+$f-xxlarge: 68px;
+$f-xxxlarge: 120px;
+$f-youth-feature: 96px;
+
+//weights
+$book: 400;
+$demi: 600;
+$heavy: 900;
+
+// colors
+$dark-grey: #3a3a3a;
+$mid-grey: #ccc;
+$light-grey: #f6f3f3;
+
+$orange: #fd5207;
+$quote-bg: #a33073;
+
+$white: white;
+$black: black;
+
+$feature-col: white;
+
+$body-color: $light-grey;
+$content-background: $light-grey;
+$body-font-color: $dark-grey;
+
+//buttons
+$btn-white: $white;
+$btn-height: 60px;
+
+//widths
+$line-length: 70%;
+
+// Units & measure
+$unit: 20px;
+$pad-vw: 2vw;
+$pad-60: 60px 0 0 0;
+
+// Breakpoints redefined for use with
+// include-media
+$width-outer-max: 1440px;
+$bp-small: 480px;
+$bp-medium: 600px;
+$bp-large: 960px;
+$bp-hi: 1200px;
+
+$breakpoints: (
+  small: 480px,
+  medium: 640px,
+  large: 960px,
+  hi: 1200px
+);
+
+// Timing
+$time-transition: 0.2s;
+
+// $margin-left-small: 5px;
+// $margin-left-medium: 30px
+// $margin-left-large: 60px;
+// $margin-left-hi: 90px;
+
+// @mixin marginLeft {
+
+// }

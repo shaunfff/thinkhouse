@@ -1,0 +1,37 @@
+body.freeze {
+  overflow: hidden;
+}
+.wrapper,
+.container,
+header,
+main,
+footer {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  &.dark-opaque {
+    background: rgba(black, 0.1);
+  }
+}
+.container {
+  width: $width-outer-max;
+  max-width: 100%;
+  color: $orange;
+}
+
+.wrapper {
+  padding: 0 0 0 60px;
+  @include media("<=#{$width-outer-max}") {
+    padding: 0 0 0 40px;
+  }
+  @include media("<=medium") {
+    padding: 0 0 0 20px;
+  }
+  @include media("<=small") {
+    padding: 0 0 0 0px;
+  }
+}
+
+body {
+  background: $dark-grey;
+}

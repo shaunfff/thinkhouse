@@ -1,0 +1,22 @@
+/* Import Franklin from Adobe */
+@import url("https://use.typekit.net/oje0csv.css");
+ 
+/* Basic browser reset + body rules */ 
+@import 'base/reset';
+
+/* Animations + resuable Mixins*/
+@import 'abstracts/animations';
+@import 'abstracts/include-media';
+@import 'abstracts/mixins';
+
+/* Declare vars */
+@import 'abstracts/variables';
+
+/* Global formatting options - set up of typographic system */
+@import 'base/formatting';
+
+/* Import global layout rules */
+@import 'layout/layout';
+
+/* Import components */
+@import 'components/components';

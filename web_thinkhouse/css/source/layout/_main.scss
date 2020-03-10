@@ -1,0 +1,2040 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  background-color: $orange;
+}
+
+.cover {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  &__asset {
+    background: black;
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    @include media("<large") {
+      height: 40vh;
+    }
+
+    @include media("<medium") {
+      height: 30vh;
+    }
+
+    @include media("<small") {
+      height: 30vh;
+    }
+
+    video,
+    img {
+      position: absolute;
+      z-index: 0;
+      background-size: cover;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+    }
+    img {
+      max-width: auto;
+    }
+  }
+}
+
+.hero-head {
+  position: relative;
+  &__btn {
+    position: absolute;
+    z-index: 100;
+    bottom: -30px;
+    right: 60px;
+  }
+}
+
+.intro {
+  position: relative;
+  @extend %marginLeft;
+
+  &__text {
+    font-weight: $demi;
+    @extend %xxlarge;
+    @extend %lineLength;
+    @extend %marginBottom;
+    position: relative;
+    line-height: 1.1;
+
+    h1 {
+      color: $black;
+    }
+    h2 {
+      color: $white;
+    }
+  }
+}
+
+h1 div {
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+h2 div {
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+img {
+  overflow: hidden;
+}
+
+.features {
+  @include flexCenter();
+  flex-direction: column;
+  position: relative;
+  left: 0;
+
+  h3 {
+    @extend %medium-feature;
+    color: $white;
+    font-weight: $demi;
+    align-self: flex-start;
+    @extend %marginLeft;
+    @extend %lineLength;
+    padding-bottom: 5px;
+  }
+  &__blocks {
+    width: 100%;
+    overflow: hidden;
+
+    &--block {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      object-fit: none;
+      color: $white;
+      white-space: nowrap;
+      background-color: white;
+      &:hover:before {
+        content: "FAME TRANSFORMATION PLANET";
+        z-index: 2;
+        color: $black;
+        background-color: white;
+        @extend %xxxlarge;
+        font-weight: $heavy;
+        text-transform: uppercase;
+        animation: marquee 6.5s infinite linear;
+        pointer-events: none;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @include media("<large") {
+        height: 120px;
+      }
+
+      @include media("<medium") {
+        height: 80px;
+      }
+
+      @include media("<small") {
+        height: 75px;
+      }
+    }
+
+    h4 {
+      @extend %xxxlarge;
+      font-weight: $heavy;
+      text-transform: uppercase;
+      @extend %marginLeft;
+      z-index: 1;
+
+      &::after {
+        content: "";
+        border-color: transparent rgb(255, 255, 255);
+        border-style: solid;
+        border-width: 0.1em 0 0.1em 0.18em;
+        display: inline-block;
+        right: 0.4em;
+        top: 45%;
+        position: absolute;
+
+        @include media("<small") {
+        }
+      }
+    }
+    img {
+      width: 100%;
+      position: absolute;
+      filter: brightness(50%);
+      &:hover {
+        opacity: 0;
+      }
+    }
+  }
+  &__btn {
+    position: relative;
+    align-self: flex-start;
+    @extend %marginLeft;
+  }
+}
+
+.work {
+  position: relative;
+  h3 {
+    @extend %medium-feature;
+    color: $white;
+    font-weight: $demi;
+    align-self: flex-start;
+    @extend %marginLeft;
+    padding-bottom: 5px;
+  }
+  &__tags {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    a {
+      border-bottom: 4px solid white;
+      padding-top: 20px;
+      @include media("<medium") {
+        border-bottom: 3px solid white;
+      }
+    }
+  }
+
+  &__block {
+    width: 100%;
+    display: block;
+    a {
+      position: absolute;
+      text-align: center;
+      z-index: 1;
+      font-weight: $heavy;
+      text-transform: uppercase;
+      color: $white;
+      @extend %small;
+    }
+  }
+  &__image {
+    display: flex;
+    align-items: center;
+    h4 {
+      text-align: center;
+      width: 90%;
+      font-weight: $demi;
+      color: $white;
+      position: absolute;
+      left: 5%;
+      z-index: 1;
+      @extend %xxxlarge;
+    }
+    img {
+      filter: brightness(75%);
+      width: stretch;
+    }
+  }
+}
+
+.cards {
+  @extend %marginLeft;
+  position: relative;
+  h3 {
+    @extend %medium-feature;
+    color: $white;
+    font-weight: $demi;
+  }
+  .card-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: flex-start;
+    @include media("<medium") {
+      flex-direction: column;
+    }
+
+    .card {
+      flex-basis: 45%;
+      text-align: left;
+      margin-right: 5%;
+      overflow: hidden;
+
+      &__body {
+        height: 160px;
+        background: #fff;
+
+        padding: 20px 0 0 20px;
+        @include media("<large") {
+          height: 120px;
+          padding: 10px 0 0 10px;
+        }
+        @include media("<medium") {
+          height: 100px;
+          padding: 10px 0 0 10px;
+        }
+      }
+
+      @extend %marginBottom;
+      &__image {
+        width: 100%;
+        overflow: hidden;
+      }
+      h3 {
+        @extend %medium;
+        color: $black;
+        font-weight: $demi;
+        @extend %lineLength;
+        padding-bottom: 10px;
+      }
+      a {
+        color: $black;
+        font-weight: $heavy;
+        text-transform: uppercase;
+        @extend %small;
+      }
+    }
+  }
+  .card.hero-card {
+    flex-basis: 95%;
+    margin-right: 5%;
+    position: relative;
+    a.explore-button {
+      font-weight: $demi;
+      text-transform: none;
+      position: relative;
+      @extend %small;
+      float: right;
+      transform: translateX(-21%);
+      &::after {
+        content: "";
+        position: absolute;
+        background: $black;
+        top: -10%;
+        width: 1.5em;
+        height: 1.5em;
+      }
+    }
+
+    .card__body {
+      position: absolute;
+      bottom: 0;
+      width: 47%;
+      @include media("<medium") {
+        position: relative;
+        width: 100%;
+      }
+    }
+  }
+  &__btn {
+    display: flex;
+    justify-content: center;
+    margin-right: 5%;
+  }
+}
+
+.youth-block {
+  .youth {
+    position: relative;
+    &__image {
+      position: relative;
+      height: auto;
+    }
+    &__btn {
+      position: absolute;
+      bottom: -20px;
+      @extend %marginLeft;
+    }
+    &__png {
+      position: absolute;
+      top: 50%;
+      left: 45%;
+      transform: translate(-50%, -50%);
+      @extend %marginLeft;
+      width: 70%;
+    }
+    img {
+      display: block;
+      width: stretch;
+    }
+  }
+
+  h4 {
+    @extend %large;
+    font-weight: $demi;
+    @extend %marginLeft;
+    @extend %lineLength;
+    color: $black;
+    border-bottom: 6px solid rgb(0, 0, 0);
+    display: inline;
+
+    @include media("<medium") {
+      border-bottom: 4px solid rgb(0, 0, 0);
+    }
+  }
+  h5 {
+    padding-top: 2%;
+    @extend %large;
+    font-weight: $demi;
+    color: $white;
+    @extend %marginLeft;
+    @extend %lineLength;
+    line-height: 1.2;
+  }
+  h3 {
+    @extend %medium;
+    color: $white;
+    font-weight: $demi;
+    @extend %marginLeft;
+  }
+}
+
+.latest {
+  &__block {
+    max-height: 540px;
+    padding: 8% 0 8% 0;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include media("<medium") {
+      padding-left: 15px;
+    }
+    @include media("<small") {
+      padding-left: 0px;
+    }
+
+    h3 {
+      @extend %medium;
+      font-weight: $demi;
+      @extend %marginLeft;
+      color: $orange;
+      @include media("<small") {
+        padding-left: 20px;
+      }
+    }
+    ul {
+      @include media("<small") {
+        margin-left: 20px;
+      }
+      a {
+        font-size: $f-xsmall;
+        font-weight: $heavy;
+        text-transform: uppercase;
+        color: black;
+        @extend %marginLeft;
+        @include media("<medium") {
+          font-size: $f-xxxsmall;
+        }
+      }
+      li {
+        @extend %marginLeft;
+        display: table-row;
+        a {
+          position: relative;
+          height: 70px;
+          @extend %medium;
+          font-weight: $demi;
+          border-bottom: 4px solid rgb(0, 0, 0);
+          text-transform: none;
+          @include media("<medium") {
+            border-bottom: 3px solid rgb(0, 0, 0);
+          }
+          &::before {
+            content: "";
+            border-color: transparent #111;
+            border-style: solid;
+            border-width: 0.3em 0 0.3em 0.4em;
+            display: block;
+            height: 0;
+            left: -1em;
+            top: 0.5em;
+            position: absolute;
+          }
+        }
+      }
+    }
+  }
+  &__btn {
+    position: absolute;
+    @extend %rightBottom;
+    z-index: 100;
+  }
+}
+
+.footer {
+  &__cta {
+    @extend %marginBottom;
+  }
+  .wrap {
+    display: flex;
+    @include media("<small") {
+      flex-flow: wrap;
+    }
+  }
+  p {
+    @extend %small;
+
+    color: $white;
+    font-weight: $demi;
+    @extend %marginLeft;
+    width: 70%;
+  }
+
+  h4 {
+    @extend %large;
+    color: $white;
+    font-weight: $demi;
+    @extend %marginLeft;
+    @extend %lineLength;
+  }
+
+  .button {
+    @extend %marginLeft;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $btn-white;
+    color: $black;
+    font-size: $f-xsmall;
+    font-weight: $heavy;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+
+    height: 50px;
+    width: 150px;
+    @include media("<large") {
+      height: 50px;
+      width: 120px;
+    }
+    @include media("<medium") {
+      width: 100px;
+    }
+    @include media("<small") {
+      height: 40px;
+      width: 80px;
+    }
+  }
+  &__details {
+    width: 100%;
+    height: 310px;
+    background: $black;
+  }
+}
+
+a.button {
+  white-space: nowrap;
+}
+
+.mask-container-top {
+  clip-path: inset(0 0 0 0);
+}
+
+.mask-container {
+  clip-path: inset(0 0 0 0);
+
+  .button {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $btn-white;
+    color: $black;
+    font-size: $f-xsmall;
+    font-weight: $heavy;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    height: 60px;
+    min-width: 240px;
+    @include media("<large") {
+      min-width: 200px;
+      height: 50px;
+      font-size: $f-xxsmall;
+    }
+
+    @include media("<medium") {
+      min-width: 160px;
+      height: 40px;
+
+      font-size: $f-mini;
+    }
+
+    @include media("<small") {
+      min-width: 120px;
+      font-size: $f-xmini;
+    }
+  }
+}
+
+.bottom-padding-xlarge {
+  @extend %bottom-padding-xlarge;
+}
+
+.bottom-padding-large {
+  @extend %bottom-padding-large;
+}
+
+.bottom-padding-medium {
+  @extend %bottom-padding-medium;
+}
+
+.bottom-padding-small {
+  @extend %bottom-padding-small;
+}
+
+.bottom-padding-xsmall {
+  @extend %bottom-padding-xsmall;
+}
+
+.top-padding-xlarge {
+  @extend %top-padding-xlarge;
+}
+
+.top-padding-large {
+  @extend %top-padding-large;
+}
+
+.top-padding-medium {
+  @extend %top-padding-medium;
+}
+
+.top-padding-small {
+  @extend %top-padding-small;
+}
+
+.top-padding-xsmall {
+  @extend %top-padding-xsmall;
+}
+
+.top-padding-310 {
+  padding-top: 20%;
+}
+.top-padding-280 {
+  padding-top: 15%;
+}
+
+.white-bg {
+  background-color: $white;
+}
+
+.fame-cover {
+  @extend %heroHeight;
+  &__img {
+    background-image: url("/img/fame-hero.png");
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    text-align: center;
+  }
+  &__title {
+    transform: translateY(-50%);
+    h1 {
+      @extend %xxxlarge-feature;
+      font-weight: $heavy;
+      text-transform: uppercase;
+      color: $white;
+    }
+  }
+}
+
+.fame-services {
+  @extend %marginLeft;
+  h2 {
+    font-weight: $demi;
+    @extend %xxlarge;
+    color: $white;
+    width: 85%;
+    line-height: 1.1;
+  }
+  p {
+    color: $white;
+    font-style: normal;
+    font-weight: normal;
+    @extend %body-small;
+    line-height: 1.4;
+    @extend %lineLength;
+  }
+
+  h3 {
+    @extend %medium-feature;
+    color: $white;
+    font-weight: $demi;
+    color: $white;
+    @include media("<medium") {
+      padding-left: 15px;
+    }
+  }
+  ul {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+    @include media("<medium") {
+      padding-left: 15px;
+    }
+    li {
+      width: 50%;
+      a {
+        @extend %xlarge-list;
+        font-weight: $demi;
+        color: $white;
+        border-bottom: 6px solid rgb(255, 255, 255);
+        text-transform: none;
+
+        @include media("<medium") {
+          border-bottom: 4px solid rgb(255, 255, 255);
+        }
+        @include media("<small") {
+          border-bottom: 3px solid rgb(255, 255, 255);
+        }
+        &::before {
+          content: "";
+          border-color: transparent #111;
+          border-style: solid;
+          border-width: 0.16em 0 0.16em 0.28em;
+          display: block;
+          height: 0;
+          left: -0.6em;
+          top: 0.9em;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+.quote-block {
+  display: flex;
+  flex-direction: column;
+  max-height: 570px;
+  background: $quote-bg;
+  padding-bottom: 70px;
+  @include media("<large") {
+    padding-bottom: 50px;
+  }
+  &__quote {
+    @extend %lineLength;
+    blockquote {
+      @extend %xlarge-quote;
+      color: $white;
+      font-weight: $demi;
+      line-height: 1.05;
+      padding: 80px;
+      @include media("<large") {
+        padding: 40px;
+      }
+      &::before {
+        content: '"';
+        position: absolute;
+        margin-left: -1em;
+        width: 1em;
+        text-align: right;
+      }
+      &::after {
+        margin-left: -0.3em;
+        content: '"';
+      }
+    }
+  }
+  &__image {
+    @include media("<medium") {
+      width: 50%;
+    }
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    @include media("<medium") {
+      display: inline-block;
+    }
+    @extend %marginLeft;
+    figure {
+      display: inline-flex;
+
+      img {
+        width: 80%;
+        border-radius: 50%;
+      }
+      .info {
+        align-self: center;
+        width: 70%;
+        padding: 0 20px 0 20px;
+        @include media("<medium") {
+          padding: 0 10px 0 10px;
+        }
+
+        h6 {
+          @extend %xsmall-quote-details;
+          font-weight: $demi;
+          color: $white;
+        }
+        p {
+          @extend %xsmall-quote-details;
+          font-weight: $book;
+          color: $white;
+        }
+      }
+    }
+    .quote-button {
+      display: inline-block;
+      align-self: center;
+      margin-right: 120px;
+      width: 360px;
+      @include media("<large") {
+        margin-top: 30px;
+        max-width: 60%;
+      }
+      @include media("<medium") {
+        margin-right: 0px;
+      }
+    }
+  }
+}
+
+.article-header {
+  &__text {
+    font-weight: $demi;
+    @extend %xxlarge;
+    @extend %lineLength;
+    h1 {
+      color: $black;
+      @extend %marginLeft;
+    }
+    h2 {
+      color: $white;
+      @extend %marginLeft;
+    }
+  }
+}
+
+.article-hero {
+  @extend %heroHeight;
+  &__image {
+    background-image: url("/img/griffith-hero.png");
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+}
+
+.article-intro {
+  position: relative;
+  .tags {
+    position: absolute;
+    @extend %marginLeft;
+
+    ul {
+      display: flex;
+
+      li {
+        padding: 10px 10px 0 0;
+
+        @extend %small-tag;
+        font-weight: $demi;
+        border-bottom-width: 70%;
+        text-transform: uppercase;
+
+        &:after {
+          content: ",";
+        }
+        a {
+          color: $orange;
+          position: relative;
+          &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 1px;
+            width: 100%;
+            border-bottom: 3px solid $orange;
+          }
+        }
+      }
+    }
+  }
+  h3 {
+    @extend %marginLeft;
+    @extend %lineLength;
+    @extend %medium;
+    font-weight: $demi;
+    color: $dark-grey;
+  }
+  img {
+    @extend %marginLeft;
+    width: 75%;
+  }
+  &__copy {
+    @extend %body-article;
+    display: flex;
+    color: $dark-grey;
+    @include media("<=medium") {
+      flex-direction: column;
+    }
+    .body {
+      width: 60%;
+      @include media("<=medium") {
+        width: 85%;
+      }
+      h4 {
+        @extend %marginLeft;
+        font-weight: $demi;
+      }
+      p {
+        @extend %marginLeft;
+        font-weight: $book;
+      }
+    }
+    aside {
+      width: 20%;
+      @extend %marginLeft;
+      @include media("<=medium") {
+        width: 50%;
+      }
+      h5 {
+        @extend %body-article;
+        font-weight: $demi;
+
+        @include media("<=medium") {
+          padding-top: 8%;
+        }
+      }
+      h6 {
+        @extend %xxsmall;
+        font-weight: $demi;
+        padding-top: 5%;
+      }
+      p {
+        @extend %xxsmall;
+      }
+    }
+  }
+}
+
+.up-next-block {
+  &__title {
+    position: absolute;
+    z-index: 1;
+    @extend %marginLeft;
+    top: 50%;
+    h6 {
+      @extend %xxlarge-next;
+      color: $white;
+      font-weight: $demi;
+
+      &:nth-child(1) {
+        color: $orange;
+      }
+    }
+  }
+
+  h5 {
+    @extend %medium-feature;
+    @extend %marginLeft;
+    font-weight: $demi;
+    color: $dark-grey;
+  }
+  &__image {
+    overflow: hidden;
+    height: 430px;
+    filter: brightness(40%);
+
+    @include media("<large") {
+      height: 280px;
+    }
+
+    @include media("<medium") {
+      height: 180px;
+    }
+
+    @include media("<small") {
+      height: 140px;
+    }
+  }
+}
+
+.brands {
+  h3 {
+    @extend %large;
+    color: $white;
+    font-weight: $demi;
+    @extend %marginLeft;
+    @extend %lineLength;
+  }
+  &__block {
+    @extend %marginLeft;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    align-items: baseline;
+
+    &--img {
+      img {
+        width: 75%;
+      }
+      padding: 20px;
+      width: 20%;
+
+      @include media("<large") {
+        width: calc(25% - #{$unit});
+      }
+      @include media("<medium") {
+        width: calc(33% - #{$unit});
+      }
+      @include media("<small") {
+        width: calc(50% - #{$unit});
+      }
+    }
+  }
+}
+
+.what-we-do {
+  position: relative;
+
+  &__blocks {
+    width: 100%;
+
+    &--block {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+
+      .service-list {
+        @extend %marginLeft;
+        z-index: 101;
+        position: absolute;
+        top: 25%;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          flex-flow: wrap;
+
+          @include media("<medium") {
+            padding-left: 15px;
+          }
+          li {
+            width: 60%;
+            a {
+              @extend %large-list;
+              font-weight: $demi;
+              color: $white;
+              border-bottom: 6px solid rgb(255, 255, 255);
+              text-transform: none;
+              @include media("<large") {
+                border-bottom: 4px solid rgb(255, 255, 255);
+              }
+
+              @include media("<medium") {
+                border-bottom: 3px solid rgb(255, 255, 255);
+              }
+              @include media("<small") {
+                border-bottom: 3px solid rgb(255, 255, 255);
+              }
+              &::before {
+                content: "";
+                border-color: transparent rgb(255, 255, 255);
+                border-style: solid;
+                border-width: 0.16em 0 0.16em 0.28em;
+                display: block;
+                height: 0;
+                left: -0.6em;
+                top: 0.9em;
+                position: relative;
+              }
+            }
+          }
+        }
+      }
+      .service-list.first-list {
+        li {
+          width: 50%;
+        }
+      }
+    }
+
+    div h4 {
+      padding-top: 3%;
+      position: absolute;
+      @extend %xxlarge;
+      font-weight: $heavy;
+      color: $white;
+      text-transform: uppercase;
+      @extend %marginLeft;
+      z-index: 1;
+      @include media("<=medium") {
+        padding-left: 15px;
+      }
+    }
+    img {
+      width: 100%;
+      filter: brightness(80%);
+    }
+  }
+}
+
+.white-text {
+  color: white !important;
+  padding-bottom: 20px;
+}
+
+.grey-bg {
+  background-color: #f6f3f3 !important;
+  @include media("<=large") {
+    padding: 0px !important;
+  }
+}
+
+.black-bg {
+  background-color: $black !important;
+}
+
+.search-title {
+  background-color: #f6f3f3 !important;
+  @include media("<=medium") {
+    background-color: $orange !important;
+  }
+  h4 {
+    @extend %medium-feature;
+    @extend %marginLeft;
+    font-weight: $demi;
+    color: $dark-grey;
+    padding: 20px 0 20px 0;
+    @include media("<=medium") {
+      color: $white;
+    }
+  }
+}
+
+.search-results {
+  margin-left: 90px;
+  padding: 5% 0 10%;
+  @include media("<=hi") {
+    margin-left: 60px;
+  }
+  @include media("<=large") {
+    margin-left: 40px;
+  }
+  @include media("<=medium") {
+    margin-left: 0px;
+  }
+
+  &__card {
+    display: flex;
+    align-items: center;
+    margin: 0 0 5% 0;
+    background-color: $white;
+    width: 95%;
+    position: relative;
+    @include media("<=medium") {
+      width: 100%;
+    }
+
+    &--text {
+      margin-left: 50px;
+      @include media("<=hi") {
+        margin-left: 40px;
+      }
+      @include media("<=large") {
+        margin-left: 20px;
+      }
+      @include media("<=medium") {
+        margin-left: 10px;
+      }
+    }
+    .card__footer {
+      padding: 20px 10px 0 0;
+
+      a {
+        color: $black;
+        @extend %small-tag;
+        font-weight: $demi;
+        text-transform: uppercase;
+        @include media("<=medium") {
+          display: none;
+        }
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      background: $orange;
+      right: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      background-image: url(/img/Arrow.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      @include media("<=medium") {
+        display: none;
+      }
+    }
+
+    h5 {
+      padding-top: 20px;
+      @extend %medium-card;
+      font-weight: $demi;
+      color: $dark-grey;
+    }
+    p {
+      color: $dark-grey;
+      @extend %xsmall;
+      line-height: 1.4;
+      @extend %lineLength;
+    }
+    &--img {
+      width: 50%;
+
+      background-image: url("/img/search-1.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 250px;
+      @include media("<=hi") {
+        height: 200px;
+      }
+      @include media("<=large") {
+        height: 150px;
+      }
+      @include media("<=medium") {
+        height: 100px;
+        margin: 30px 0 30px 0;
+      }
+      @include media("<=small") {
+        height: 75px;
+      }
+    }
+  }
+}
+
+.youth-cards {
+  @extend %marginLeft;
+  position: relative;
+  h3 {
+    @extend %medium-feature;
+    color: $white;
+    font-weight: $demi;
+  }
+  .card-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: flex-start;
+    @include media("<medium") {
+      flex-direction: column;
+    }
+
+    .card {
+      @include media("<medium") {
+        flex-basis: 45%;
+        text-align: left;
+      }
+
+      &__body {
+        height: 160px;
+        background: #fff;
+
+        padding: 40px 0 0 30px;
+
+        @include media("<large") {
+          height: 120px;
+          padding: 30px 0 0 20px;
+        }
+        @include media("<medium") {
+          height: 80px;
+          padding: 15px 0 0 15px;
+        }
+      }
+
+      @extend %marginBottom;
+      &__image {
+        width: 100%;
+      }
+      h3 {
+        @extend %medium;
+        color: $black;
+        font-weight: $demi;
+        @extend %lineLength;
+        border-bottom: 5px solid rgb(0, 0, 0);
+        text-transform: none;
+        display: inline;
+        @include media("<medium") {
+          border-bottom: 3px solid rgb(0, 0, 0);
+        }
+      }
+      a {
+        color: $black;
+        font-weight: $demi;
+        text-transform: uppercase;
+        @extend %small;
+      }
+    }
+  }
+  .card.hero-card {
+    flex-basis: 100%;
+
+    position: relative;
+
+    .card__body {
+      position: absolute;
+      bottom: 0;
+      width: 47%;
+      @include media("<medium") {
+        width: 60%;
+      }
+    }
+  }
+  &__btn {
+    display: flex;
+    justify-content: center;
+    margin-right: 5%;
+  }
+}
+
+.youth-header {
+  @extend %marginLeft;
+  padding-right: 120px;
+  @include media("<large") {
+    padding-right: 80px;
+  }
+  @include media("<medium") {
+    padding-right: 40px;
+  }
+  @include media("<small") {
+    padding-right: 20px;
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+  }
+  h1 {
+    @extend %medium-card;
+    font-weight: $demi;
+    color: $white;
+    align-self: flex-end;
+    padding: 10px 0 10px 0;
+  }
+}
+.youth {
+  &__cover {
+    @extend %heroHeight;
+    &__img {
+      background-image: url("/img/youth-cover.png");
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+    .text {
+      position: absolute;
+      top: 20%;
+      left: 10%;
+
+      h1 {
+        font-weight: $demi;
+        color: $white;
+
+        @extend %youth-feature;
+      }
+      h2 {
+        font-weight: $demi;
+        color: $white;
+        width: 70%;
+        @extend %youth-feature;
+      }
+    }
+
+    &__btn {
+      position: absolute;
+      z-index: 1;
+      @extend %rightBottom;
+
+      left: 10%;
+      bottom: -5%;
+    }
+  }
+  h4 {
+    font-weight: $demi;
+    color: $white;
+    @extend %medium-feature;
+    margin-left: 10%;
+    width: 60%;
+  }
+}
+
+.issue-cards {
+  @extend %marginLeft;
+  .card {
+    position: relative;
+    &__category {
+      display: block;
+      background: rgb(0, 0, 0);
+      position: absolute;
+      top: 0;
+      transform: translate(-1%, -1%);
+    }
+
+    @extend %marginBottom;
+    &__image {
+      width: 100%;
+    }
+    a {
+      color: $white;
+    }
+    .read-more {
+      a {
+        color: $white;
+        font-weight: $demi;
+        text-transform: uppercase;
+        @extend %small;
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          width: 1.5em;
+          height: 1.5em;
+          background-image: url(/img/Arrow.svg);
+          background-position: 80% 45%;
+          background-repeat: no-repeat;
+          @include media("<medium") {
+            width: 1em;
+            height: 1em;
+          }
+        }
+      }
+    }
+  }
+  h3 {
+    @extend %xxlarge;
+    color: $white;
+    font-weight: $demi;
+  }
+  p {
+    @extend %small;
+    @extend %lineLength;
+    color: $white;
+    font-weight: $book;
+  }
+}
+
+.black-white-bg {
+  background: linear-gradient(180deg, black 0 50%, white 0);
+}
+
+.youth-article-header {
+  &__text {
+    font-weight: $demi;
+    @extend %xxlarge;
+    @extend %lineLength;
+    h1 {
+      text-transform: uppercase;
+      color: black;
+      -webkit-text-fill-color: $black; /* Will override color (regardless of order) */
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: $white;
+      @extend %marginLeft;
+    }
+    h2 {
+      color: $white;
+      @extend %marginLeft;
+    }
+  }
+}
+
+.youth-article-hero {
+  @extend %heroHeight;
+  &__image {
+    background-image: url("/img/issuexx.png");
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    width: stretch;
+  }
+}
+
+.youth-article-intro {
+  img {
+    width: stretch;
+  }
+  position: relative;
+  .meta {
+    padding-top: 1%;
+    @extend %marginLeft;
+    display: flex;
+    .author {
+      display: flex;
+      p {
+        @extend %small-tag;
+        font-weight: $demi;
+        color: $black;
+        padding-right: 5%;
+      }
+      a {
+        position: relative;
+        @extend %small-tag;
+        font-weight: $demi;
+        color: $black;
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+
+          width: 100%;
+          border-bottom: 3px solid $black;
+        }
+      }
+    }
+
+    time {
+      @extend %small-tag;
+      font-weight: $demi;
+      color: $black;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 100%;
+        border-bottom: 3px solid $black;
+      }
+    }
+    .tags {
+      @extend %marginLeft;
+      ul {
+        display: flex;
+        li {
+          @extend %small-tag;
+          font-weight: $demi;
+          border-bottom-width: 70%;
+          text-transform: uppercase;
+
+          &:after {
+            color: $black;
+            content: ",";
+          }
+          a {
+            color: $black;
+            position: relative;
+            &:before {
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              height: 1px;
+              width: 100%;
+              border-bottom: 3px solid $black;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  h3 {
+    @extend %marginLeft;
+    @extend %lineLength;
+    @extend %medium;
+    font-weight: $demi;
+    color: $dark-grey;
+  }
+
+  &__copy {
+    @extend %body-article;
+    @extend %lineLength;
+
+    color: $dark-grey;
+    h4 {
+      @extend %marginLeft;
+      font-weight: $demi;
+    }
+    p {
+      @extend %marginLeft;
+      font-weight: $book;
+    }
+  }
+}
+
+.youth-up-next-block {
+  &__title {
+    position: absolute;
+    z-index: 1;
+    @extend %marginLeft;
+    top: 60%;
+    h6 {
+      @extend %xxlarge-next;
+      color: $white;
+      font-weight: $demi;
+
+      &:nth-child(1) {
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, 0);
+        -webkit-text-fill-color: rgba(0, 0, 0, 0);
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $white;
+      }
+    }
+  }
+
+  h5 {
+    @extend %medium-feature;
+    @extend %marginLeft;
+    font-weight: $demi;
+    color: $dark-grey;
+  }
+  &__image {
+    display: flex;
+    overflow: hidden;
+    filter: brightness(60%);
+  }
+}
+
+.more-issues {
+  &__list {
+    @extend %marginLeft;
+    position: absolute;
+    z-index: 1;
+    @include media("<=medium") {
+      padding-left: 10px;
+    }
+
+    h5 {
+      color: $white;
+      font-weight: $heavy;
+      text-transform: uppercase;
+      @extend %large-feature;
+      padding: 5% 0 2% 0;
+    }
+    ul {
+      @extend %body-list;
+      padding: 0.5% 0;
+      display: flex;
+      flex-flow: wrap;
+
+      li {
+        width: 45%;
+        padding: 0.4% 0;
+        @include media("<=large") {
+          width: 50%;
+        }
+        @include media("<=medium") {
+          width: 100%;
+        }
+        a {
+          display: flex;
+          color: $white;
+
+          h6 {
+            position: relative;
+            font-weight: $demi;
+            width: 30%;
+
+            @include media("<=medium") {
+              width: 20%;
+            }
+            @include media("<=small") {
+              width: 30%;
+            }
+            &::before {
+              content: "";
+              border-color: transparent rgb(255, 255, 255);
+              border-style: solid;
+              border-width: 0.2em 0 0.2em 0.3em;
+              display: block;
+              height: 0;
+              left: -1em;
+              top: 0.5em;
+              position: absolute;
+            }
+          }
+          p {
+            font-weight: $book;
+          }
+        }
+      }
+    }
+  }
+  .issue-image {
+    background-image: url("/img/more-issues.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: brightness(50%);
+    height: 80vh;
+    @include media("<=large") {
+      height: 60vh;
+    }
+    @include media("<=medium") {
+      height: 75vh;
+    }
+    @include media("<=small") {
+      height: 60vh;
+    }
+  }
+}
+
+.careers-header {
+  &__text {
+    font-weight: $demi;
+    @extend %xxlarge;
+    @extend %lineLength;
+    h1 {
+      color: $black;
+      @extend %marginLeft;
+    }
+    h2 {
+      color: $white;
+      @extend %marginLeft;
+    }
+  }
+}
+
+.careers-hero {
+  @extend %heroHeight;
+  &__image {
+    background-image: url("/img/careers-hero.png");
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+}
+
+.careers-subhead {
+  @extend %marginLeft;
+  h2 {
+    font-weight: $demi;
+    @extend %xxlarge;
+    color: $white;
+    width: 85%;
+    line-height: 1.1;
+  }
+}
+
+.careers-results {
+  margin-left: 90px;
+  padding: 5% 0 10%;
+  @include media("<=hi") {
+    margin-left: 60px;
+  }
+  @include media("<=large") {
+    margin-left: 40px;
+  }
+  @include media("<=medium") {
+    margin-left: 0px;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2%;
+  }
+  &__btn {
+    justify-self: flex-end;
+
+    .button {
+      color: $white;
+      background: $orange;
+    }
+  }
+  &__card {
+    display: flex;
+    align-items: center;
+    margin: 0 0 5% 0;
+    background-color: $white;
+    width: 95%;
+    position: relative;
+    @include media("<=medium") {
+      width: 100%;
+    }
+    .title-time {
+      margin-top: 5%;
+      display: flex;
+      align-items: baseline;
+
+      time {
+        padding-left: 3%;
+        color: rgb(172, 172, 172);
+        @extend %small;
+        font-weight: $demi;
+        text-transform: uppercase;
+      }
+      h5 {
+        padding-bottom: 2%;
+        @extend %medium-card;
+        font-weight: $demi;
+        color: $dark-grey;
+      }
+    }
+
+    &--text {
+      margin-left: 50px;
+      @include media("<=hi") {
+        margin-left: 40px;
+      }
+      @include media("<=large") {
+        margin-left: 30px;
+      }
+      @include media("<=medium") {
+        margin-left: 20px;
+      }
+    }
+
+    p {
+      color: $dark-grey;
+      @extend %xsmall;
+      line-height: 1.4;
+      @extend %lineLength;
+      @include media("<=small") {
+        margin-bottom: 5%;
+      }
+    }
+
+    .actions {
+      @include media("<=small") {
+        display: none;
+      }
+      .actions__more {
+        a {
+          color: $black;
+          font-weight: $demi;
+          text-transform: uppercase;
+          @extend %xxsmall;
+          &::after {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            background-image: url(/img/Arrow.svg);
+            filter: invert(100%);
+            background-position: 50% 45%;
+            background-repeat: no-repeat;
+            transform: translateX(8px);
+          }
+        }
+      }
+    }
+  }
+}
+
+// h1 div {
+//   overflow: hidden;
+// }
+
+// h2 div {
+//   overflow: hidden;
+// }
+
+.job-article-hero {
+  @extend %heroHeight;
+  &__image {
+    background-image: url("/img/dop.png");
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+}
+
+.job-details {
+  padding: 7% 0 7%;
+
+  h3 {
+    color: $dark-grey;
+    @extend %marginLeft;
+    @extend %lineLength;
+    @extend %medium;
+    font-weight: $demi;
+  }
+  ul {
+    @extend %large-list;
+    @extend %marginLeft;
+    @extend %lineLength;
+    li {
+      display: flex;
+      font-weight: $demi;
+      color: $dark-grey;
+      position: relative;
+      &::before {
+        content: "";
+        border-color: transparent rgb(61, 61, 61);
+        border-style: solid;
+        border-width: 0.2em 0 0.2em 0.32em;
+        display: block;
+        height: 0;
+        left: -1em;
+        top: 0.5em;
+        position: absolute;
+      }
+      p {
+        font-weight: $book;
+        color: rgb(119, 119, 119);
+      }
+    }
+  }
+  .button {
+    @extend %marginLeft;
+    width: 240px;
+  }
+}
+
+.job-article-intro {
+  position: relative;
+  color: $dark-grey;
+  padding: 5% 0 10%;
+
+  h3 {
+    @extend %marginLeft;
+    @extend %lineLength;
+    @extend %medium;
+    font-weight: $demi;
+  }
+  h4 {
+    @extend %marginLeft;
+    font-weight: $demi;
+    @extend %body-article;
+    @extend %lineLength;
+  }
+  p {
+    @extend %marginLeft;
+    @extend %body-article;
+    @extend %lineLength;
+  }
+}
+
+.job-article-copy {
+  position: relative;
+  color: $dark-grey;
+  @extend %body-article;
+  padding-bottom: 200px;
+  h4 {
+    @extend %marginLeft;
+    font-weight: $demi;
+    padding: 8% 0 2%;
+    @extend %lineLength;
+  }
+  p {
+    @extend %lineLength;
+    padding: 1% 0;
+    margin-left: 10%;
+    &:before {
+      content: "";
+      border-color: transparent rgb(54, 54, 54);
+      border-style: solid;
+      border-width: 0.2em 0 0.2em 0.3em;
+      position: absolute;
+      left: 7%;
+      transform: translate(-50%, 100%);
+    }
+  }
+}
+
+.apply {
+  h3 {
+    @extend %marginLeft;
+    @extend %lineLength;
+    @extend %medium;
+    font-weight: $demi;
+    color: $dark-grey;
+  }
+  .button {
+    @extend %marginLeft;
+    width: 240px;
+  }
+}
+
+.intro-contact {
+  position: relative;
+  @extend %marginLeft;
+
+  &__text {
+    font-weight: $demi;
+    @extend %xxlarge;
+    @extend %lineLength;
+    @extend %marginBottom;
+    position: relative;
+    line-height: 1.1;
+
+    h1 {
+      position: relative;
+      color: $black;
+      &:after {
+        content: "THINKHOUSE";
+        color: $white;
+        position: absolute;
+        transform: translateX(6%);
+      }
+    }
+  }
+}
+.contact {
+  position: relative;
+  .field {
+    // position: absolute;
+    form {
+      display: flex;
+      justify-content: space-between;
+      @extend %marginLeft;
+      width: 50%;
+      flex-direction: column;
+      transform: translateY(-8%);
+      textarea,
+      input {
+        @extend %body-feature;
+        font-weight: $heavy;
+        text-transform: capitalize;
+        margin: 3% 0 3% 0%;
+        padding: 3% 0 3% 3%;
+        outline: 0;
+        background: $white;
+        width: 100%;
+        border: 0;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        height: 10em;
+        resize: none;
+      }
+      button {
+        text-align: center;
+        outline: 0;
+        border: 0;
+        color: $white;
+        background: $orange;
+        font-size: $f-xsmall;
+        font-weight: $heavy;
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+        height: 60px;
+        min-width: 240px;
+      }
+    }
+  }
+}
