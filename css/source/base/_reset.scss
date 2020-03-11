@@ -137,6 +137,7 @@ table {
   box-sizing: border-box;
 }
 
-input[type="text"]:focus {
+button,
+input:focus {
   outline: none;
 }

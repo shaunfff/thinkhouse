@@ -2162,31 +2162,58 @@ a.button {
       margin: 0 12% 0 12%;
       align-items: center;
       border-bottom: 1px solid $black;
-    }
-    input {
-      width: 95%;
-      @extend %medium;
-      font-weight: 200;
-      &::placeholder {
-        color: $black;
+
+      input {
+        width: 95%;
+        @extend %medium;
+        font-weight: 200;
+        border: none;
+        &::placeholder {
+          color: $black;
+        }
+      }
+      button {
+        border: none;
+        background: none;
+        font-weight: $heavy;
+        align-self: flex-end;
+        @extend %medium;
+        cursor: pointer;
+        &::before {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          width: 22px;
+          height: 22px;
+          background-image: url(/img/Arrow.svg);
+          background-size: 100% 100%;
+          transform: translate(-150%, 45%);
+          filter: invert(100%);
+          background-position: 50% 45%;
+          background-repeat: no-repeat;
+        }
       }
     }
-    button {
-      font-weight: $heavy;
-      align-self: flex-end;
-      @extend %medium;
-      &::before {
-        content: "";
+    a {
+      width: 20px;
+      height: 16px;
+      cursor: pointer;
+      display: block;
+      position: absolute;
+      top: 5%;
+      right: 3%;
+      span {
+        display: block;
         position: absolute;
-        display: inline-block;
-        width: 22px;
-        height: 22px;
-        background-image: url(/img/Arrow.svg);
-        background-size: 100% 100%;
-        transform: translate(-150%, 45%);
-        filter: invert(100%);
-        background-position: 50% 45%;
-        background-repeat: no-repeat;
+        height: 2px;
+        width: 100%;
+        background: #333;
+        opacity: 1;
+        left: 0;
+        transform: rotate(45deg);
+        &:nth-child(1) {
+          transform: rotate(-45deg);
+        }
       }
     }
   }
