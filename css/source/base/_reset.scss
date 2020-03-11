@@ -136,3 +136,7 @@ table {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+input[type="text"]:focus {
+  outline: none;
+}
