@@ -2230,3 +2230,14 @@ a.button {
   transform: translateY(0vh);
   transition: transform 0.8s;
 }
+
+div.siema {
+  button {
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: none;
+    margin-right: 15px;
+  }
+}

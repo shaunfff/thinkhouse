@@ -108,15 +108,26 @@ closeBtn.addEventListener("click", function() {
 
 const mySiema = new Siema();
 
-// Add a function that generates pagination to prototype
 Siema.prototype.addPagination = function() {
   for (let i = 0; i < this.innerElements.length; i++) {
     const btn = document.createElement("button");
-    btn.textContent = i;
+
+    // // element that will be wrapped
+    // const el = document.querySelector("button");
+
+    // // create wrapper container
+    // const wrapper = document.createElement("siema-wrap");
+
+    // // insert wrapper before el in the DOM tree
+    // el.parentNode.insertBefore(wrapper, el);
+
+    // // move el into wrapper
+    // wrapper.appendChild(el);
+
+    btn.textContent = "";
     btn.addEventListener("click", () => this.goTo(i));
     this.selector.appendChild(btn);
   }
 };
 
-// Trigger pagination creator
 mySiema.addPagination();
