@@ -2146,15 +2146,19 @@ a.button {
   max-width: 100%;
   height: 100vh;
   top: 0;
-
   background-color: rgba(0, 0, 0, 0.904);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 1s opacity 1s;
+
   &__bg {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: $white;
     height: 75vh;
-
+    transform: translateY(-100vh);
+    transition: transform 0.8s;
     form {
       display: flex;
       position: relative;
@@ -2201,7 +2205,7 @@ a.button {
       display: block;
       position: absolute;
       top: 5%;
-      right: 3%;
+      right: 2%;
       span {
         display: block;
         position: absolute;
@@ -2217,4 +2221,15 @@ a.button {
       }
     }
   }
+}
+
+.search-active {
+  transition: visibility 0.5s opacity 1s;
+  visibility: visible;
+  opacity: 1;
+}
+
+.search__bg-active {
+  transition: transform 0.8s;
+  transform: translateY(0vh);
 }

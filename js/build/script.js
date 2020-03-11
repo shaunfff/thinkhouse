@@ -85,3 +85,23 @@ targets.forEach(target => {
 Array.prototype.forEach.call(targets, el => {
   observer.observe(el);
 });
+
+var searchBtn = document.querySelector(".search-prompt");
+var closeBtn = document.querySelector(".close-search");
+var search = document.querySelector(".search");
+var searchBg = document.querySelector(".search__bg");
+
+searchBtn.addEventListener("click", function() {
+  search.classList.add("search-active");
+  searchBg.classList.add("search__bg-active");
+});
+
+closeBtn.addEventListener("click", function() {
+  search.classList.remove("search-active");
+  searchBg.classList.remove("search__bg-active");
+});
+
+// search.addEventListener("click", function() {
+//   search.classList.remove("search-active");
+//   searchBg.classList.remove("search__bg-active");
+// });
