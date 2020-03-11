@@ -475,7 +475,47 @@ img {
     z-index: 100;
   }
 }
+a.button {
+  white-space: nowrap;
+}
 
+.mask-container-top {
+  clip-path: inset(0 0 0 0);
+}
+
+.mask-container {
+  clip-path: inset(0 0 0 0);
+}
+.button {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $btn-white;
+  color: $black;
+  font-size: $f-xsmall;
+  font-weight: $heavy;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  height: 60px;
+  width: 240px;
+  @include media("<large") {
+    width: 200px;
+    height: 50px;
+    font-size: $f-xxsmall;
+  }
+
+  @include media("<medium") {
+    width: 160px;
+    height: 40px;
+    font-size: $f-mini;
+  }
+
+  @include media("<small") {
+    width: 140px;
+    font-size: $f-xmini;
+  }
+}
 .footer {
   &__cta {
     @extend %marginBottom;
@@ -530,7 +570,7 @@ img {
     }
     @include media("<small") {
       height: 30px;
-      width: 80px;
+      width: 90px;
     }
   }
   &__details {
@@ -580,50 +620,6 @@ img {
           }
         }
       }
-    }
-  }
-}
-
-a.button {
-  white-space: nowrap;
-}
-
-.mask-container-top {
-  clip-path: inset(0 0 0 0);
-}
-
-.mask-container {
-  clip-path: inset(0 0 0 0);
-
-  .button {
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: $btn-white;
-    color: $black;
-    font-size: $f-xsmall;
-    font-weight: $heavy;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    height: 60px;
-    min-width: 240px;
-    @include media("<large") {
-      min-width: 200px;
-      height: 50px;
-      font-size: $f-xxsmall;
-    }
-
-    @include media("<medium") {
-      min-width: 160px;
-      height: 40px;
-
-      font-size: $f-mini;
-    }
-
-    @include media("<small") {
-      min-width: 140px;
-      font-size: $f-xmini;
     }
   }
 }
@@ -1963,21 +1959,8 @@ a.button {
     }
   }
   .button {
-    width: 15%;
     color: $white;
     background: $orange;
-    @include media("<large") {
-      height: 50px;
-      width: 120px;
-    }
-    @include media("<medium") {
-      width: 100px;
-      height: 40px;
-    }
-    @include media("<small") {
-      height: 30px;
-      width: 80px;
-    }
   }
 }
 
@@ -2034,38 +2017,53 @@ a.button {
 }
 
 .apply {
+  padding: 2% 0 8% 0;
   h3 {
     @extend %marginLeft;
-    @extend %lineLength;
+    width: 60%;
     @extend %medium;
     font-weight: $demi;
     color: $dark-grey;
+    padding-bottom: 4%;
   }
+
   .button {
+    color: $white;
+    background: $orange;
     @extend %marginLeft;
   }
 }
 
 .intro-contact {
+  padding: 15% 0 5% 0;
   position: relative;
   @extend %marginLeft;
 
   &__text {
-    font-weight: $demi;
-    @extend %xxlarge;
-    @extend %lineLength;
-    @extend %marginBottom;
-    position: relative;
-    line-height: 1.1;
-
     h1 {
+      font-weight: $demi;
+      @extend %xxlarge;
+      @extend %lineLength;
+
+      line-height: 1.1;
       position: relative;
       color: $black;
+      margin-right: 1%;
+      text-transform: capitalize;
       &:after {
-        content: "THINKHOUSE";
+        content: " THINKHOUSE";
         color: $white;
         position: absolute;
-        transform: translateX(6%);
+        display: contents;
+      }
+    }
+    h3 {
+      color: $white;
+      @extend %medium;
+      @extend %marginBottom;
+      a {
+        color: $white;
+        text-decoration: underline;
       }
     }
   }
@@ -2081,9 +2079,12 @@ a.button {
       width: 50%;
       flex-direction: column;
       transform: translateY(-8%);
+      @include media("<large") {
+        width: 90%;
+      }
       textarea,
       input {
-        @extend %body-feature;
+        @extend %body-list;
         font-weight: $heavy;
         text-transform: capitalize;
         margin: 3% 0 3% 0%;
@@ -2093,6 +2094,10 @@ a.button {
         width: 100%;
         border: 0;
         box-sizing: border-box;
+        &::placeholder {
+          color: $dark-grey;
+          opacity: 0.8;
+        }
       }
 
       textarea {
@@ -2110,7 +2115,24 @@ a.button {
         text-transform: uppercase;
         letter-spacing: -0.01em;
         height: 60px;
-        min-width: 240px;
+
+        width: 240px;
+        @include media("<large") {
+          width: 200px;
+          height: 50px;
+          font-size: $f-xxsmall;
+        }
+
+        @include media("<medium") {
+          width: 160px;
+          height: 40px;
+          font-size: $f-mini;
+        }
+
+        @include media("<small") {
+          width: 140px;
+          font-size: $f-xmini;
+        }
       }
     }
   }
