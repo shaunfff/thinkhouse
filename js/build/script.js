@@ -97,11 +97,26 @@ searchBtn.addEventListener("click", function() {
 });
 
 closeBtn.addEventListener("click", function() {
-  search.classList.remove("search-active");
   searchBg.classList.remove("search__bg-active");
+  search.classList.remove("search-active");
 });
 
 // search.addEventListener("click", function() {
 //   search.classList.remove("search-active");
 //   searchBg.classList.remove("search__bg-active");
 // });
+
+const mySiema = new Siema();
+
+// Add a function that generates pagination to prototype
+Siema.prototype.addPagination = function() {
+  for (let i = 0; i < this.innerElements.length; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.addEventListener("click", () => this.goTo(i));
+    this.selector.appendChild(btn);
+  }
+};
+
+// Trigger pagination creator
+mySiema.addPagination();
