@@ -1909,24 +1909,38 @@ a.button {
 }
 
 .job-details {
-  padding: 7% 0 7%;
+  position: relative;
+
+  &__btn {
+    position: absolute;
+    left: 6%;
+    bottom: -6%;
+    z-index: 1;
+    @include media("<small") {
+      bottom: -10%;
+    }
+  }
 
   h3 {
     color: $dark-grey;
-    @extend %marginLeft;
+    margin-left: 10%;
     @extend %lineLength;
     @extend %medium;
     font-weight: $demi;
+    margin-bottom: 1%;
+    padding: 6% 0 0 0;
   }
   ul {
     @extend %large-list;
-    @extend %marginLeft;
+    margin-left: 10%;
     @extend %lineLength;
+    padding: 0 0 9% 0;
     li {
       display: flex;
       font-weight: $demi;
       color: $dark-grey;
       position: relative;
+
       &::before {
         content: "";
         border-color: transparent rgb(61, 61, 61);
@@ -1938,6 +1952,9 @@ a.button {
         top: 0.5em;
         position: absolute;
       }
+      h5 {
+        width: 45%;
+      }
       p {
         font-weight: $book;
         color: rgb(119, 119, 119);
@@ -1946,8 +1963,21 @@ a.button {
     }
   }
   .button {
-    @extend %marginLeft;
-    width: 240px;
+    width: 15%;
+    color: $white;
+    background: $orange;
+    @include media("<large") {
+      height: 50px;
+      width: 120px;
+    }
+    @include media("<medium") {
+      width: 100px;
+      height: 40px;
+    }
+    @include media("<small") {
+      height: 30px;
+      width: 80px;
+    }
   }
 }
 
@@ -1969,6 +1999,7 @@ a.button {
     @extend %lineLength;
   }
   p {
+    padding-top: 1%;
     @extend %marginLeft;
     @extend %body-article;
     @extend %lineLength;
@@ -2012,7 +2043,6 @@ a.button {
   }
   .button {
     @extend %marginLeft;
-    width: 240px;
   }
 }
 
