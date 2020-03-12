@@ -317,20 +317,29 @@ img {
     flex-basis: 95%;
     margin-right: 5%;
     position: relative;
-    a.explore-button {
+    .explore-button a {
+      display: flex;
+      flex-direction: row;
       font-weight: $demi;
       text-transform: none;
       position: relative;
       @extend %small;
       float: right;
-      transform: translateX(-21%);
-      &::after {
-        content: "";
-        position: absolute;
-        background: $black;
-        top: -10%;
-        width: 1.5em;
-        height: 1.5em;
+      .more {
+        background-color: $black;
+        display: flex;
+        flex-direction: column;
+        width: 40px;
+        height: 35px;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 2% 0 2% 0;
+        span {
+          width: 25px;
+          height: 2px;
+          display: block;
+          background: $white;
+        }
       }
     }
 
@@ -1302,15 +1311,21 @@ a.button {
         height: 160px;
         background: #fff;
 
-        padding: 40px 0 0 30px;
-
+        padding: 20px 0 0 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         @include media("<large") {
           height: 120px;
-          padding: 30px 0 0 20px;
+          padding: 10px 0 0 15px;
         }
         @include media("<medium") {
           height: 80px;
-          padding: 15px 0 0 15px;
+          padding: 10px 0 0 10px;
+        }
+        @include media("<small") {
+          height: 60px;
+          padding: 10px 0 0 10px;
         }
       }
 
@@ -1323,11 +1338,15 @@ a.button {
         color: $black;
         font-weight: $demi;
         @extend %lineLength;
-        border-bottom: 5px solid rgb(0, 0, 0);
         text-transform: none;
-        display: inline;
-        @include media("<medium") {
-          border-bottom: 3px solid rgb(0, 0, 0);
+        position: relative;
+        &:after {
+          position: absolute;
+          content: "";
+          width: 100%;
+          border-bottom: 0.15em solid #000;
+          bottom: 0;
+          right: 0;
         }
       }
       a {
