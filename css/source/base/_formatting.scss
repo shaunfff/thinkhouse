@@ -204,6 +204,10 @@ em {
   @include fluid-type($bp-small, $bp-hi, $f-xmini, $f-xsmall);
 }
 
+%medium-feature {
+  @include fluid-type($bp-small, $bp-hi, $f-xxsmall, $f-medium);
+}
+
 %marginLeft {
   margin-left: 90px;
 
