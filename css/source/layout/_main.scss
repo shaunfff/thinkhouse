@@ -1339,6 +1339,7 @@ a.button {
         font-weight: $demi;
         @extend %lineLength;
         text-transform: none;
+        display: inline;
         position: relative;
         &:after {
           position: absolute;
