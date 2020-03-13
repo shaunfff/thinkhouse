@@ -846,13 +846,18 @@ a.button {
       display: inline-block;
       align-self: center;
       margin-right: 120px;
-      width: 360px;
       @include media("<large") {
         margin-top: 30px;
         max-width: 60%;
       }
       @include media("<medium") {
         margin-right: 0px;
+      }
+      .button {
+        width: 300px;
+        @include media("<medium") {
+          width: 200px;
+        }
       }
     }
   }
@@ -985,7 +990,7 @@ a.button {
     position: absolute;
     z-index: 1;
     @extend %marginLeft;
-    top: 50%;
+    top: 55%;
     h6 {
       @extend %xxlarge-next;
       color: $white;
@@ -1004,6 +1009,9 @@ a.button {
     color: $dark-grey;
   }
   &__image {
+    & img {
+      width: 101%;
+    }
     overflow: hidden;
     height: 430px;
     filter: brightness(40%);
@@ -2185,9 +2193,8 @@ div.siema {
   }
 }
 
-// h1,
-// h2 {
-//   @include media("<small") {
-//     padding: 0 0 0 2%;
-//   }
-// }
+.small {
+  @include media("<small") {
+    padding: 0 0 0 2%;
+  }
+}
