@@ -34,7 +34,7 @@
     top: 0;
     width: 60px;
     max-width: 100%;
-    z-index: 1000;
+    z-index: 1;
     @include media("<small") {
       position: absolute;
     }
@@ -120,9 +120,9 @@
 
   &__pnav {
     // Mobile Menu
-    transform: translateY(100vh);
+    // transform: translateY(100vh);
     background: $white;
-    overflow: hidden;
+    // overflow: hidden;
     position: absolute;
     width: 100%;
     height: 0;
@@ -131,15 +131,18 @@
     top: -200vh;
     left: 0;
     z-index: 101;
+    @include media("<medium") {
+      padding-left: 15%;
+    }
     &.open {
-      transform: translateY(0);
+      // transform: translateY(0);
       opacity: 1;
       height: 100vh;
       overflow: scroll;
       z-index: 501;
       top: 0;
       left: 0;
-      padding-left: 20%;
+      // padding-left: 20%;
       padding-top: 80px;
     }
     nav {
@@ -149,7 +152,7 @@
       padding: 0;
 
       @include media("<medium") {
-        font-size: 32px;
+        font-size: 28px;
         font-weight: $heavy;
       }
       ul {
@@ -179,11 +182,10 @@
       background: none;
       width: 100%;
       opacity: 1;
-      transform: translateY(0);
-      left: 8%;
+      // transform: translateY(0);
       top: 0;
       padding-top: 0;
-      width: 80%;
+      width: stretch;
       height: 40px;
       &.open {
         padding-top: 0;
@@ -191,18 +193,19 @@
       }
 
       nav {
-        width: 520px;
         max-width: 100%;
         margin: 0 0 0 0;
         padding: 0;
+
         ul {
           display: flex;
           height: 40px;
           flex-direction: row;
           align-items: center;
-          justify-content: space-around;
+          justify-content: start;
+          margin-left: 10%;
           li {
-            margin-right: 10px;
+            margin: 0 5% 0 0;
             a {
               color: $white;
             }
@@ -239,4 +242,131 @@
 
 .opaque {
   opacity: 1 !important;
+}
+
+.search {
+  &__bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $white;
+    height: 75vh;
+    transform: translateY(-100vh);
+    transition: transform 500ms;
+    @include media("<medium") {
+      background-color: unset;
+      transform: translateY(0);
+      justify-content: unset;
+      height: unset;
+      padding-top: 15%;
+    }
+
+    form {
+      display: flex;
+      position: relative;
+      width: 100%;
+      margin: 0 12% 0 12%;
+      align-items: center;
+      border-bottom: 1px solid $black;
+      @include media("<medium") {
+        width: 75%;
+        margin: 0;
+      }
+      @include media("<small") {
+        width: unset;
+      }
+
+      input {
+        width: 95%;
+        @extend %medium;
+        font-weight: 200;
+        border: none;
+        &::placeholder {
+          color: $black;
+        }
+      }
+      button {
+        border: none;
+        background: none;
+        font-weight: $heavy;
+        align-self: flex-end;
+        @extend %body;
+        cursor: pointer;
+        &::before {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          width: 22px;
+          height: 22px;
+          background-image: url(/img/Arrow.svg);
+          background-size: 100% 100%;
+          transform: translate(-150%, 45%);
+          filter: invert(100%);
+          background-position: 50% 45%;
+          background-repeat: no-repeat;
+          @include media("<large") {
+            transform: translate(-150%, 20%);
+          }
+          @include media("<medium") {
+            transform: translate(-120%, 15%);
+          }
+        }
+      }
+    }
+    a {
+      width: 20px;
+      height: 16px;
+      cursor: pointer;
+      display: block;
+      position: absolute;
+      top: 5%;
+      right: 2%;
+      span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: #333;
+        opacity: 1;
+        left: 0;
+        transform: rotate(45deg);
+        @include media("<medium") {
+          display: none;
+        }
+        &:nth-child(1) {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+.search__bg-active {
+  transform: translateY(0vh);
+  transition: transform 0.8s;
+}
+
+.scrim {
+  z-index: 10000;
+  position: fixed;
+  width: 1440px;
+  max-width: 100%;
+  height: 100vh;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.904);
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s linear 0.5s, opacity 1.5s;
+  @include media("<medium") {
+    background-color: unset;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+  }
+}
+
+.scrim-active {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 150ms;
 }

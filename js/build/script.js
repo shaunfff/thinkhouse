@@ -88,17 +88,17 @@ Array.prototype.forEach.call(targets, el => {
 
 var searchBtn = document.querySelector(".search-prompt");
 var closeBtn = document.querySelector(".close-search");
-var search = document.querySelector(".search");
+var scrim = document.querySelector(".scrim");
 var searchBg = document.querySelector(".search__bg");
 
 searchBtn.addEventListener("click", function() {
-  search.classList.add("search-active");
+  scrim.classList.add("scrim-active");
   searchBg.classList.add("search__bg-active");
 });
 
 closeBtn.addEventListener("click", function() {
   searchBg.classList.remove("search__bg-active");
-  search.classList.remove("search-active");
+  scrim.classList.remove("scrim-active");
 });
 
 // search.addEventListener("click", function() {
