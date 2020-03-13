@@ -87,15 +87,23 @@
     max-width: 100%;
     z-index: 1000;
     a {
+      img {
+        width: 60%;
+        height: 60%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
       background: rgb(255, 255, 255);
       display: block;
-      text-indent: -999em;
+
       width: 60px;
       height: 60px;
-      background-image: url("/img/search.svg");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: auto;
+
+      &:hover {
+        filter: invert(1);
+      }
     }
     @include media("<=#{$width-outer-max}") {
       right: 0;
@@ -139,6 +147,7 @@
       font-weight: $demi;
       margin: 0 0 0 0;
       padding: 0;
+
       @include media("<medium") {
         font-size: 32px;
         font-weight: $heavy;
@@ -146,11 +155,20 @@
       ul {
         display: flex;
         flex-direction: column;
+
         li {
           margin-right: 10px;
           a {
-            text-transform: uppercase;
             color: $orange;
+            text-transform: uppercase;
+            opacity: 0.75;
+
+            @include media("<medium") {
+              opacity: 1;
+            }
+            &:hover {
+              opacity: 1;
+            }
           }
         }
       }
@@ -217,4 +235,8 @@
 
 .orange-bg {
   background-color: $orange;
+}
+
+.opaque {
+  opacity: 1 !important;
 }

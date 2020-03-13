@@ -218,7 +218,7 @@ img {
       }
       a {
         z-index: 1;
-        font-weight: $heavy;
+        font-weight: $demi;
         text-transform: uppercase;
         color: $white;
         @extend %small;
@@ -305,7 +305,7 @@ img {
       }
       a {
         color: $black;
-        font-weight: $heavy;
+        font-weight: $demi;
         text-transform: uppercase;
         @extend %small;
       }
@@ -434,7 +434,7 @@ img {
       @extend %marginLeft;
       a {
         font-size: $f-xsmall;
-        font-weight: $heavy;
+        font-weight: $demi;
         text-transform: uppercase;
         color: black;
         @include media("<medium") {
@@ -511,6 +511,10 @@ a.button {
     width: 140px;
     font-size: $f-xmini;
   }
+  &:hover {
+    background: $black;
+    color: $white;
+  }
 }
 .footer {
   &__cta {
@@ -568,6 +572,10 @@ a.button {
       height: 30px;
       width: 90px;
     }
+    &:hover {
+      background: $black;
+      color: $white;
+    }
   }
   &__details {
     width: 100%;
@@ -580,47 +588,41 @@ a.button {
     @extend %xsmall;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    @include media("<small") {
+    justify-content: space-evenly;
+    @include media("<medium") {
       flex-direction: column;
     }
     &--links {
-      width: 50%;
+      width: 40%;
+
+      @include media("<medium") {
+        width: 100%;
+      }
+
       a {
         color: $white;
-        margin: 0 3% 10% 0;
+        margin: 0 3% 5% 0;
       }
     }
 
     &--address {
+      flex-basis: fit-content;
       p {
+        @extend %xsmall;
         margin: 0;
+        width: 100%;
       }
       ul {
         display: flex;
         flex-direction: row;
         padding-right: 6%;
         li {
-          margin: 0 0 0 0;
-
-          a {
-            display: inline-flex;
-            padding: 12% 18% 10% 0;
-            @include media("<large") {
-              padding: 10% 14% 10% 0;
-            }
+          margin: 3% 5% 0 0;
+          img {
+            filter: invert(1);
+            width: 25px;
             @include media("<medium") {
-              padding: 8% 8% 10% 0;
-            }
-            @include media("<small") {
-              padding: 2% 5% 10% 0;
-            }
-            img {
-              filter: invert(1);
-              width: 25px;
-              @include media("<medium") {
-                width: 18px;
-              }
+              width: 18px;
             }
           }
         }
@@ -1798,11 +1800,15 @@ a.button {
     margin-bottom: 2%;
   }
   &__btn {
-    justify-self: flex-end;
+    margin: 0 5% 2% 0;
 
     .button {
       color: $white;
       background: $orange;
+      &:hover {
+        background: $black;
+        color: $white;
+      }
     }
   }
   &__card {
@@ -1812,8 +1818,16 @@ a.button {
     background-color: $white;
     width: 95%;
     position: relative;
+    height: 300px;
+    @include media("<=large") {
+      height: 220px;
+    }
     @include media("<=medium") {
+      height: 150px;
       width: 100%;
+    }
+    @include media("<=small") {
+      height: 120px;
     }
     .title-time {
       margin-top: 5%;
@@ -1837,6 +1851,7 @@ a.button {
 
     &--text {
       margin-left: 50px;
+      width: 100%;
       @include media("<=hi") {
         margin-left: 40px;
       }
@@ -1886,14 +1901,6 @@ a.button {
     }
   }
 }
-
-// h1 div {
-//   overflow: hidden;
-// }
-
-// h2 div {
-//   overflow: hidden;
-// }
 
 .job-article-hero {
   @extend %heroHeight;
@@ -1965,6 +1972,10 @@ a.button {
   .button {
     color: $white;
     background: $orange;
+    &:hover {
+      background: $black;
+      color: $white;
+    }
   }
 }
 
@@ -2035,6 +2046,10 @@ a.button {
     color: $white;
     background: $orange;
     @extend %marginLeft;
+    &:hover {
+      background: $black;
+      color: $white;
+    }
   }
 }
 
@@ -2138,6 +2153,10 @@ a.button {
           width: 140px;
           font-size: $f-xmini;
         }
+        &:hover {
+          background: $white;
+          color: $orange;
+        }
       }
     }
   }
@@ -2155,6 +2174,10 @@ a.button {
   visibility: hidden;
 
   transition: visibility 0s linear 0.5s, opacity 1.5s;
+  // @include media("<medium") {
+  //   opacity: 1;
+  //   visibility: visible;
+  // }
   &__bg {
     display: flex;
     justify-content: center;
@@ -2163,6 +2186,9 @@ a.button {
     height: 75vh;
     transform: translateY(-100vh);
     transition: transform 500ms;
+    // @include media("<medium") {
+    //   transform: translateY(0);
+    // }
 
     form {
       display: flex;
