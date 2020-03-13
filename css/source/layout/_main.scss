@@ -4,9 +4,8 @@ html {
 
 .container {
   background-color: $orange;
-  //   backdrop-filter: invert(59%) sepia(70%) saturate(6974%) hue-rotate(358deg)
-  //     brightness(101%) contrast(99%);
-  // }
+  // backdrop-filter: invert(59%) sepia(70%) saturate(6974%) hue-rotate(358deg)
+  //   brightness(101%) contrast(99%);
 }
 .cover {
   position: relative;
@@ -592,30 +591,37 @@ a.button {
         margin: 0 3% 10% 0;
       }
     }
-    ul {
-      display: flex;
-      flex-direction: row;
-      padding-right: 6%;
-      li {
-        margin: 0 0 0 0;
+
+    &--address {
+      p {
+        margin: 0;
       }
-      a {
-        display: inline-flex;
-        padding: 12% 18% 10% 0;
-        @include media("<large") {
-          padding: 10% 14% 10% 0;
-        }
-        @include media("<medium") {
-          padding: 8% 8% 10% 0;
-        }
-        @include media("<small") {
-          padding: 2% 5% 10% 0;
-        }
-        img {
-          filter: invert(1);
-          width: 25px;
-          @include media("<medium") {
-            width: 18px;
+      ul {
+        display: flex;
+        flex-direction: row;
+        padding-right: 6%;
+        li {
+          margin: 0 0 0 0;
+
+          a {
+            display: inline-flex;
+            padding: 12% 18% 10% 0;
+            @include media("<large") {
+              padding: 10% 14% 10% 0;
+            }
+            @include media("<medium") {
+              padding: 8% 8% 10% 0;
+            }
+            @include media("<small") {
+              padding: 2% 5% 10% 0;
+            }
+            img {
+              filter: invert(1);
+              width: 25px;
+              @include media("<medium") {
+                width: 18px;
+              }
+            }
           }
         }
       }
@@ -1318,8 +1324,9 @@ a.button {
         font-weight: $demi;
         @extend %lineLength;
         text-transform: none;
-        display: inline;
         position: relative;
+        width: fit-content;
+        margin: 0 0 2% 1%;
         &:after {
           position: absolute;
           content: "";
@@ -1329,7 +1336,8 @@ a.button {
           right: 0;
         }
       }
-      a {
+      p {
+        margin: 0 0 0 1%;
         color: $black;
         font-weight: $demi;
         text-transform: uppercase;
@@ -1945,7 +1953,7 @@ a.button {
         position: absolute;
       }
       h5 {
-        width: 45%;
+        width: 40%;
       }
       p {
         font-weight: $demi;
@@ -1989,7 +1997,7 @@ a.button {
   position: relative;
   color: $dark-grey;
   @extend %body-article;
-  padding-bottom: 200px;
+  padding-bottom: 10% !important;
   h4 {
     @extend %marginLeft;
     font-weight: $demi;
@@ -1998,7 +2006,7 @@ a.button {
   }
   p {
     @extend %lineLength;
-    padding: 1% 0;
+    padding: 1% 2% 1% 0;
     margin-left: 10%;
     &:before {
       content: "";
