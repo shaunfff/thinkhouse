@@ -109,24 +109,26 @@ closeBtn.addEventListener("click", function() {
 const mySiema = new Siema();
 
 Siema.prototype.addPagination = function() {
+  const wrapper = document.createElement("siema-wrap");
   for (let i = 0; i < this.innerElements.length; i++) {
     const btn = document.createElement("button");
-
-    // // element that will be wrapped
-    // const el = document.querySelector("button");
-
-    // // create wrapper container
-    // const wrapper = document.createElement("siema-wrap");
-
-    // // insert wrapper before el in the DOM tree
-    // el.parentNode.insertBefore(wrapper, el);
-
-    // // move el into wrapper
-    // wrapper.appendChild(el);
+    btn.setAttribute("id", `sliderButton-${i}`);
 
     btn.textContent = "";
     btn.addEventListener("click", () => this.goTo(i));
     this.selector.appendChild(btn);
+
+    // // element that will be wrapped
+    const slideBtn = document.querySelector(`#sliderButton-${i}`);
+    console.info(slideBtn);
+
+    // // create wrapper container
+
+    // // insert wrapper before el in the DOM tree
+    slideBtn.parentNode.insertBefore(wrapper, slideBtn);
+
+    // // move el into wrapper
+    wrapper.appendChild(slideBtn);
   }
 };
 
