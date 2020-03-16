@@ -262,7 +262,9 @@ img {
         font-weight: $demi;
         color: $white;
         position: absolute;
-        left: 5%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         z-index: 1;
         @extend %xxxlarge;
       }
@@ -508,13 +510,13 @@ a.button {
   white-space: nowrap;
 }
 
-.mask-container-top {
+.mask-container-top,
+.mask-container,
+.mask-container-right,
+.mask-container-left {
   clip-path: inset(0 0 0 0);
 }
 
-.mask-container {
-  clip-path: inset(0 0 0 0);
-}
 .button {
   overflow: hidden;
   display: flex;
@@ -1607,7 +1609,7 @@ a.button {
           bottom: 0;
 
           width: 100%;
-          border-bottom: 0.015em solid $black;
+          border-bottom: 0.15em solid $black;
         }
       }
     }
@@ -1624,7 +1626,7 @@ a.button {
         bottom: 0;
         height: 1px;
         width: 100%;
-        border-bottom: 0.015em solid $black;
+        border-bottom: 0.15em solid $black;
       }
     }
     .tags {
@@ -1651,7 +1653,7 @@ a.button {
               bottom: 0;
               height: 1px;
               width: 100%;
-              border-bottom: 0.015em solid $black;
+              border-bottom: 0.15em solid $black;
             }
           }
         }
