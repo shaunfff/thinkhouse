@@ -514,6 +514,8 @@ a.button {
 .mask-container,
 .mask-container-right,
 .mask-container-left {
+  // will-change: clip-path;
+  // clip-path: polygon(100% 100%, 0% 100%, 0% 0%, 100% 0%);
   clip-path: inset(0 0 0 0);
 }
 
