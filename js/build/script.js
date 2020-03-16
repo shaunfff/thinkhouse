@@ -106,30 +106,97 @@ closeBtn.addEventListener("click", function() {
 //   searchBg.classList.remove("search__bg-active");
 // });
 
-const mySiema = new Siema();
+// const mySiema = new Siema();
 
-Siema.prototype.addPagination = function() {
-  const wrapper = document.createElement("siema-wrap");
-  for (let i = 0; i < this.innerElements.length; i++) {
-    const btn = document.createElement("button");
-    btn.setAttribute("id", `sliderButton-${i}`);
+// Siema.prototype.addPagination = function() {
+//   const wrapper = document.createElement("siema-wrap");
+//   for (let i = 0; i < this.innerElements.length; i++) {
+//     const btn = document.createElement("button");
+//     btn.setAttribute("id", `sliderButton-${i}`);
 
-    btn.textContent = "";
-    btn.addEventListener("click", () => this.goTo(i));
-    this.selector.appendChild(btn);
+//     btn.textContent = "";
+//     btn.addEventListener("click", () => this.goTo(i));
+//     this.selector.appendChild(btn);
 
-    // // element that will be wrapped
-    const slideBtn = document.querySelector(`#sliderButton-${i}`);
-    console.info(slideBtn);
+//     // // element that will be wrapped
+//     const slideBtn = document.querySelector(`#sliderButton-${i}`);
+//     console.info(slideBtn);
 
-    // // create wrapper container
+//     // // create wrapper container
 
-    // // insert wrapper before el in the DOM tree
-    slideBtn.parentNode.insertBefore(wrapper, slideBtn);
+//     // // insert wrapper before el in the DOM tree
+//     slideBtn.parentNode.insertBefore(wrapper, slideBtn);
 
-    // // move el into wrapper
-    wrapper.appendChild(slideBtn);
+//     // // move el into wrapper
+//     wrapper.appendChild(slideBtn);
+//   }
+// };
+
+// mySiema.addPagination();
+
+// window.addEventListener("resize", Siema.prototype.addPagination());
+
+// extend a Siema class by two methods
+// addDots - to create a markup for dots
+// updateDots - to update classes on dots on change callback
+class SiemaWithDots extends Siema {
+  addDots() {
+    // create a contnier for all dots
+    // add a class 'dots' for styling reason
+    this.dots = document.createElement("div");
+    this.dots.classList.add("dots");
+
+    // loop through slides to create a number of dots
+    for (let i = 0; i < this.innerElements.length; i++) {
+      // create a dot
+      const dot = document.createElement("button");
+
+      // add a class to dot
+      dot.classList.add("dots__item");
+
+      // add an event handler to each of them
+      dot.addEventListener("click", () => {
+        this.goTo(i);
+      });
+
+      // append dot to a container for all of them
+      this.dots.appendChild(dot);
+    }
+
+    // add the container full of dots after selector
+    this.selector.parentNode.insertBefore(this.dots, this.selector.nextSibling);
   }
-};
 
-mySiema.addPagination();
+  updateDots() {
+    // loop through all dots
+    for (let i = 0; i < this.dots.querySelectorAll("button").length; i++) {
+      // if current dot matches currentSlide prop, add a class to it, remove otherwise
+      const addOrRemove = this.currentSlide === i ? "add" : "remove";
+      this.dots
+        .querySelectorAll("button")
+        [i].classList[addOrRemove]("dots__item--active");
+    }
+  }
+}
+
+// instantiate new extended Siema
+const mySiemaWithDots = new SiemaWithDots({
+  // on init trigger method created above
+  onInit: function() {
+    this.addDots();
+    this.updateDots();
+  },
+
+  // on change trigger method created above
+  onChange: function() {
+    this.updateDots();
+  }
+});
+
+// onChange: () => {
+//   const index = imageSlider.currentSlide
+
+//   // captions
+//   $(".work__block").removeClass('active')
+//   $(".work__block")(index).addClass('active')
+// }
