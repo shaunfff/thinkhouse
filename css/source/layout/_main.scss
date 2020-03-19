@@ -28,6 +28,7 @@ html {
 
     @include media("<small") {
       height: 250px;
+      margin-left: 25px;
     }
 
     video,
@@ -756,6 +757,7 @@ a.button {
 
     @include media("<small") {
       height: 250px;
+      margin-left: 25px;
     }
 
     video,
@@ -943,18 +945,6 @@ a.button {
       color: $white;
       @extend %marginLeft;
     }
-  }
-}
-
-.article-hero {
-  @extend %heroHeight;
-  &__image {
-    background-image: url("/img/griffith-hero.png");
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: relative;
   }
 }
 
@@ -1505,6 +1495,7 @@ a.button {
 
     @include media("<small") {
       height: 250px;
+      margin-left: 25px;
     }
 
     video,
@@ -1559,6 +1550,7 @@ a.button {
 
     @include media("<small") {
       height: 250px;
+      margin-left: 25px;
     }
 
     video,
@@ -1677,19 +1669,6 @@ a.button {
       color: $white;
       @extend %marginLeft;
     }
-  }
-}
-
-.youth-article-hero {
-  @extend %heroHeight;
-  &__image {
-    background-image: url("/img/issuexx.png");
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: relative;
-    width: stretch;
   }
 }
 
@@ -1921,18 +1900,6 @@ a.button {
   }
 }
 
-.careers-hero {
-  @extend %heroHeight;
-  &__image {
-    background-image: url("/img/careers-hero.png");
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: relative;
-  }
-}
-
 .careers-subhead {
   @extend %marginLeft;
   h2 {
@@ -2063,18 +2030,6 @@ a.button {
         }
       }
     }
-  }
-}
-
-.job-article-hero {
-  @extend %heroHeight;
-  &__image {
-    background-image: url("/img/dop.png");
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: relative;
   }
 }
 
