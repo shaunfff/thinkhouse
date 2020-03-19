@@ -729,10 +729,10 @@ a.button {
   overflow: hidden;
   &__title {
     position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -25%);
-    z-index: 5;
+    top: 30%;
+    left: 45%;
+    transform: translate(-30%, -45%);
+    z-index: 3;
     h1 {
       @extend %xxxlarge-feature;
       font-weight: $heavy;
