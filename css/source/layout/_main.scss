@@ -15,17 +15,19 @@ html {
     background: black;
     position: relative;
     width: 100%;
-    height: 60vh;
-    @include media("<large") {
-      height: 40vh;
+    height: 620px;
+    @include media("<=hi") {
+      height: 515px;
     }
-
+    @include media("<large") {
+      height: 410px;
+    }
     @include media("<medium") {
-      height: 30vh;
+      height: 320px;
     }
 
     @include media("<small") {
-      height: 30vh;
+      height: 250px;
     }
 
     video,
@@ -500,6 +502,7 @@ img {
       }
     }
   }
+
   &__btn {
     position: absolute;
     @extend %rightBottom;
@@ -720,23 +723,56 @@ a.button {
 }
 
 .fame-cover {
-  @extend %heroHeight;
-  &__img {
-    background-image: url("/img/fame-hero.png");
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: relative;
-    text-align: center;
-  }
+  position: relative;
+  width: 100%;
+  overflow: hidden;
   &__title {
-    transform: translateY(-50%);
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    z-index: 5;
     h1 {
       @extend %xxxlarge-feature;
       font-weight: $heavy;
       text-transform: uppercase;
       color: $white;
+    }
+  }
+  &__asset {
+    background: black;
+    position: relative;
+    width: 100%;
+    height: 620px;
+    @include media("<=hi") {
+      height: 515px;
+    }
+    @include media("<large") {
+      height: 410px;
+    }
+    @include media("<medium") {
+      height: 320px;
+    }
+
+    @include media("<small") {
+      height: 250px;
+    }
+
+    video,
+    img {
+      position: absolute;
+      z-index: 0;
+      background-size: cover;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+    }
+    img {
+      max-width: auto;
     }
   }
 }
@@ -1443,51 +1479,127 @@ a.button {
     padding: 10px 0 10px 0;
   }
 }
-.youth {
-  &__cover {
-    @extend %heroHeight;
-    &__img {
-      background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-        url("/img/youth-cover.png");
 
-      height: 100%;
+.youth-cover {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  .text {
+    position: absolute;
+  }
+  &__asset {
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
+    background: black;
+    position: relative;
+    width: 100%;
+    height: 620px;
+    @include media("<=hi") {
+      height: 515px;
+    }
+    @include media("<large") {
+      height: 410px;
+    }
+    @include media("<medium") {
+      height: 320px;
+    }
+
+    @include media("<small") {
+      height: 250px;
+    }
+
+    video,
+    img {
+      position: absolute;
+      z-index: 0;
       background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      position: relative;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
     }
-    .text {
-      position: absolute;
-      top: 20%;
-      left: 10%;
-
-      h1 {
-        font-weight: $demi;
-        color: $white;
-
-        @extend %youth-feature;
-      }
-      h2 {
-        font-weight: $demi;
-        color: $white;
-        width: 70%;
-        @extend %youth-feature;
-      }
-    }
-
-    &__btn {
-      position: absolute;
-      z-index: 1;
-      @extend %rightBottom;
-      bottom: -5%;
+    img {
+      max-width: auto;
     }
   }
+}
+
+.youth-cover {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  .text {
+    position: absolute;
+    @extend %marginLeft;
+    z-index: 1;
+    color: $white;
+    @extend %youth-feature;
+    font-weight: $demi;
+    width: 35%;
+    top: 50%;
+    transform: translate(0, -50%);
+    line-height: 1.1;
+  }
+  &__asset {
+    background: black;
+    position: relative;
+    width: 100%;
+    height: 620px;
+    @include media("<=hi") {
+      height: 515px;
+    }
+    @include media("<large") {
+      height: 410px;
+    }
+    @include media("<medium") {
+      height: 320px;
+    }
+
+    @include media("<small") {
+      height: 250px;
+    }
+
+    video,
+    img {
+      filter: brightness(80%);
+      position: absolute;
+      z-index: 0;
+      background-size: cover;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+    }
+    img {
+      max-width: auto;
+    }
+  }
+}
+
+.youth-head {
   h4 {
     font-weight: $demi;
     color: $white;
     @extend %medium-feature;
     margin-left: 10%;
     width: 60%;
+    padding-bottom: 10%;
+  }
+  position: relative;
+  &__btn {
+    position: absolute;
+    z-index: 100;
+    bottom: -30px;
+    right: 60px;
+    @include media("<medium") {
+      bottom: -20px;
+      right: 30px;
+    }
   }
 }
 
@@ -1715,6 +1827,7 @@ a.button {
     color: $dark-grey;
   }
   &__image {
+    width: stretch;
     display: flex;
     overflow: hidden;
     filter: brightness(60%);
@@ -2236,6 +2349,7 @@ a.button {
 // }
 
 .small {
+  padding: 0 0 2% 0%;
   @include media("<small") {
     padding: 0 0 0 2%;
   }
