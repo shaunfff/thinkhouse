@@ -21,7 +21,8 @@
     "cssnano": "^3.10.0",
     "gsap": "^3.1.1",
     "intersection-observer": "^0.7.0",
-    "pixrem": "^3.0.2"
+    "pixrem": "^3.0.2",
+    "quicklink": "^2.0.0-alpha"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

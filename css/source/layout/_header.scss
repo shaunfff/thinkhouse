@@ -30,6 +30,8 @@
   }
   &__logo {
     position: fixed;
+    top: 0;
+    bottom: auto;
     left: calc((100% - #{$width-outer-max}) / 2);
     top: 0;
     width: 60px;
@@ -369,4 +371,11 @@
   visibility: visible;
   opacity: 1;
   transition: visibility 0s linear 0s, opacity 150ms;
+}
+
+.logo-fixed {
+  position: absolute;
+  transform: translateY(500vh);
+  bottom: 0;
+  top: auto;
 }

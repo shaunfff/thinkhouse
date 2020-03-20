@@ -2,6 +2,11 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
 .container {
   background-color: $orange;
   // backdrop-filter: invert(59%) sepia(70%) saturate(6974%) hue-rotate(358deg)
@@ -187,7 +192,7 @@ img {
       position: absolute;
       top: -20%;
       left: 0;
-      filter: brightness(50%);
+      // filter: brightness(50%);
       &:hover {
         opacity: 0;
       }
@@ -2335,6 +2340,22 @@ a.button {
     cursor: pointer;
     &--active {
       background: rgb(255, 255, 255);
+    }
+  }
+}
+.loading-screen {
+  height: 100vh;
+  position: relative;
+  background: $white;
+  .logo {
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    img {
+      filter: invert(59%) sepia(70%) saturate(4000%) hue-rotate(358deg)
+        brightness(101%) contrast(99%);
     }
   }
 }
