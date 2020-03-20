@@ -149,6 +149,26 @@ closeBtn.addEventListener("click", function() {
 //   searchBg.classList.remove("search__bg-active");
 // });
 
+var doc = $(document);
+
+doc.scroll(function() {
+  // make sure to wrap yours entire footer in some css selector
+  var footer = $("footer");
+  var p = $(".header__logo");
+  var s = $("header");
+
+  var top = doc.scrollTop() + s.offset().top * 2 + p.height();
+  var footerTop = footer.offset().top;
+
+  var offset = footerTop - top;
+
+  if (offset < 0) {
+    p.css({ "margin-top": "" + offset + "px" });
+  } else {
+    p.css({ "margin-top": 0 });
+  }
+});
+
 // const mySiema = new Siema();
 
 // Siema.prototype.addPagination = function() {
@@ -238,30 +258,30 @@ const mySiemaWithDots = new SiemaWithDots({
 
 // observeLogo.observe(document.querySelector("footer"));
 
-const logo = document.querySelector(".header__logo");
-const footer = document.querySelector(".footer");
+// const logo = document.querySelector(".header__logo");
+// const footer = document.querySelector(".footer");
 
-const footerOptions = {
-  rootMargin: "0% 0% 75% 0%",
-  threshold: 0.01
-};
+// const footerOptions = {
+//   rootMargin: "0% 0% 75% 0%",
+//   threshold: 0.01
+// };
 
-const footerObserver = new IntersectionObserver(function(
-  entries,
-  footerObserver
-) {
-  entries.forEach(entry => {
-    console.log(entry.target);
-    if (entry.isIntersecting) {
-      logo.classList.add("logo-fixed");
-    } else {
-      logo.classList.remove("logo-fixed");
-    }
-  });
-},
-footerOptions);
+// const footerObserver = new IntersectionObserver(function(
+//   entries,
+//   footerObserver
+// ) {
+//   entries.forEach(entry => {
+//     console.log(entry.target);
+//     if (entry.isIntersecting) {
+//       logo.classList.add("logo-fixed");
+//     } else {
+//       logo.classList.remove("logo-fixed");
+//     }
+//   });
+// },
+// footerOptions);
 
-footerObserver.observe(footer);
+// footerObserver.observe(footer);
 
 // var footerObserver = new IntersectionObserver(
 //   function(entries) {
