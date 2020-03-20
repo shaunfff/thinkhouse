@@ -422,7 +422,8 @@ img {
       @extend %marginLeft;
       width: 70%;
     }
-    img {
+    img,
+    video {
       display: block;
       width: stretch;
     }
@@ -2345,7 +2346,7 @@ a.button {
   }
 }
 .loading-screen {
-  height: 100vh;
+  height: 200vh;
   position: relative;
   background: $white;
   .logo {

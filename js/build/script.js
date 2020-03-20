@@ -127,28 +127,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-////////SEARCH////////
-
-var searchBtn = document.querySelector(".search-prompt");
-var closeBtn = document.querySelector(".close-search");
-var scrim = document.querySelector(".scrim");
-var searchBg = document.querySelector(".search__bg");
-
-searchBtn.addEventListener("click", function() {
-  scrim.classList.add("scrim-active");
-  searchBg.classList.add("search__bg-active");
-});
-
-closeBtn.addEventListener("click", function() {
-  searchBg.classList.remove("search__bg-active");
-  scrim.classList.remove("scrim-active");
-});
-
-// search.addEventListener("click", function() {
-//   search.classList.remove("search-active");
-//   searchBg.classList.remove("search__bg-active");
-// });
-
 var doc = $(document);
 
 doc.scroll(function() {
@@ -169,32 +147,59 @@ doc.scroll(function() {
   }
 });
 
-// const mySiema = new Siema();
+// Video
 
-// Siema.prototype.addPagination = function() {
-//   const wrapper = document.createElement("siema-wrap");
-//   for (let i = 0; i < this.innerElements.length; i++) {
-//     const btn = document.createElement("button");
-//     btn.setAttribute("id", `sliderButton-${i}`);
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
 
-//     btn.textContent = "";
-//     btn.addEventListener("click", () => this.goTo(i));
-//     this.selector.appendChild(btn);
+  if ("IntersectionObserver" in window) {
+    var lazyVideoObserver = new IntersectionObserver(function(
+      entries,
+      observer
+    ) {
+      entries.forEach(function(video) {
+        if (video.isIntersecting) {
+          for (var source in video.target.children) {
+            var videoSource = video.target.children[source];
+            if (
+              typeof videoSource.tagName === "string" &&
+              videoSource.tagName === "SOURCE"
+            ) {
+              videoSource.src = videoSource.dataset.src;
+            }
+          }
 
-//     // // element that will be wrapped
-//     const slideBtn = document.querySelector(`#sliderButton-${i}`);
-//     console.info(slideBtn);
+          video.target.load();
+          video.target.classList.remove("lazy");
+          lazyVideoObserver.unobserve(video.target);
+        }
+      });
+    });
 
-//     // // create wrapper container
+    lazyVideos.forEach(function(lazyVideo) {
+      lazyVideoObserver.observe(lazyVideo);
+    });
+  }
+});
 
-//     // // insert wrapper before el in the DOM tree
-//     slideBtn.parentNode.insertBefore(wrapper, slideBtn);
+////////SEARCH////////
 
-//     // // move el into wrapper
-//     wrapper.appendChild(slideBtn);
-//   }
-// };
+var searchBtn = document.querySelector(".search-prompt");
+var closeBtn = document.querySelector(".close-search");
+var scrim = document.querySelector(".scrim");
+var searchBg = document.querySelector(".search__bg");
 
+searchBtn.addEventListener("click", function() {
+  scrim.classList.add("scrim-active");
+  searchBg.classList.add("search__bg-active");
+});
+
+closeBtn.addEventListener("click", function() {
+  searchBg.classList.remove("search__bg-active");
+  scrim.classList.remove("scrim-active");
+});
+
+/////siema
 class SiemaWithDots extends Siema {
   addDots() {
     this.dots = document.createElement("div");
@@ -236,26 +241,6 @@ const mySiemaWithDots = new SiemaWithDots({
   }
 });
 
-// onChange: () => {
-//   const index = imageSlider.currentSlide
-
-//   // captions
-//   $(".work__block").removeClass('active')
-//   $(".work__block")(index).addClass('active')
-// }
-
-// const fixedTarget = document.querySelector(".header__logo");
-// const observeLogo = new IntersectionObserver(entries => {
-//   entries.forEach(entry => {
-//     const target = entry.target;
-//     if (entry.isIntersecting) {
-//       // fixedTarget.style.position = "fixed";
-//     } else {
-//       fixedTarget.style.position = "absolute";
-//     }
-//   });
-// });
-
 // observeLogo.observe(document.querySelector("footer"));
 
 // const logo = document.querySelector(".header__logo");
@@ -282,16 +267,3 @@ const mySiemaWithDots = new SiemaWithDots({
 // footerOptions);
 
 // footerObserver.observe(footer);
-
-// var footerObserver = new IntersectionObserver(
-//   function(entries) {
-//     // no intersection with screen
-//     if (entries[0].intersectionRatio === 0) logo.classList.add("logo-fixed");
-//     // fully intersects with screen
-//     else if (entries[0].intersectionRatio === 1)
-//       logo.classList.remove("logo-fixed");
-//   },
-//   { threshold: [0, 1] }
-// );
-
-// observer.observe(document.querySelector(".footer"));
