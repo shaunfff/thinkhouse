@@ -2361,3 +2361,55 @@ a.button {
     }
   }
 }
+.wrapppp {
+  background: #1d1d1d;
+  font-family: Asap, sans-serif;
+
+  .wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 70%;
+    top: 100px;
+    left: 50%;
+    position: absolute;
+  }
+
+  .viewport {
+    position: absolute;
+    pointer-events: none;
+    width: 90%;
+    width: calc(70% + 8px);
+    top: 100px;
+    left: 50%;
+    border: 2px solid #ddd;
+  }
+
+  .num {
+    position: absolute;
+    color: #555;
+    color: #fafafa;
+    font-size: 18px;
+    line-height: 1;
+    top: 14px;
+    left: 8px;
+  }
+
+  .box {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .boxes {
+    position: relative;
+  }
+
+  .nav {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin: 20px 0;
+  }
+}
