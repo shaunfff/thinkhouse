@@ -2362,54 +2362,111 @@ a.button {
   }
 }
 .wrapppp {
-  background: #1d1d1d;
-  font-family: Asap, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  overflow: hidden;
+  height: 100vh;
+  width: stretch;
+  position: relative;
 
-  .wrapper {
-    position: relative;
+  #masterWrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
     overflow: hidden;
-    width: 70%;
-    top: 100px;
-    left: 50%;
-    position: absolute;
   }
 
-  .viewport {
-    position: absolute;
-    pointer-events: none;
-    width: 90%;
-    width: calc(70% + 8px);
-    top: 100px;
-    left: 50%;
-    border: 2px solid #ddd;
+  #panelWrap {
+    height: 100%;
   }
 
-  .num {
-    position: absolute;
-    color: #555;
-    color: #fafafa;
-    font-size: 18px;
-    line-height: 1;
-    top: 14px;
-    left: 8px;
-  }
-
-  .box {
-    position: absolute;
+  #slideWrap {
+    height: 100%;
     display: flex;
+    align-content: center;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-weight: 700;
+    position: relative;
+    float: left;
   }
 
-  .boxes {
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
     position: relative;
+    background-color: #fff;
+    margin: 12px 8px;
+    cursor: pointer;
+
+    float: left;
   }
 
-  .nav {
-    position: relative;
+  .dots {
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    bottom: 16px;
+  }
+
+  span {
+    display: block;
+    font-size: 0.75em;
+    font-weight: 400;
+  }
+
+  h3,
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  p {
+    max-width: 400px;
+    font-weight: 400;
     text-align: center;
-    color: white;
-    font-size: 20px;
-    margin: 20px 0;
+  }
+
+  .hideMe {
+    opacity: 0;
+  }
+  .iconWrap {
+    width: 300px;
+    margin-top: 30px;
+  }
+
+  @media (min-width: 700px) {
+    .iconWrap {
+      width: 600px;
+    }
+  }
+  .icon {
+    text-align: center;
+    width: 150px;
+    float: left;
+  }
+
+  .icon svg {
+    width: 50px;
+    height: 50px;
+    margin: 6px 0;
+    overflow: visible;
+  }
+
+  @media (max-width: 480px) {
+    #slideWrap img {
+      max-width: 200px;
+    }
+    p {
+      max-width: 180px;
+    }
   }
 }

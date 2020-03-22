@@ -29,26 +29,44 @@
       <source data-src="video/thinkhouse.mp4" type="video/mp4" />
     </video> -->
     <div class="wrapppp">
-      <div class="nav">
-        <label>
-          <input type="checkbox" name="overflow" id="overflow" value="1" /> Show
-          overflow
-        </label>
-      </div>
+      <div class="hideMe">
+        <div id="masterWrap">
+          <div id="panelWrap">
+            <div id="slideWrap">
+              <h3>Random dog</h3>
+              <p>
+                This slider demo is powered by GSAP 3 along with the Draggable
+                and Inertia plugins
+              </p>
+            </div>
 
-      <div class="wrapper">
-        <div class="boxes"></div>
+            <div id="slideWrap">
+              <h3>Random dog</h3>
+              <p>
+                This slider demo is powered by GSAP 3 along with the Draggable
+                and Inertia plugins
+              </p>
+            </div>
+            <div id="slideWrap">
+              <h3>Random dog</h3>
+              <p>
+                This slider demo is powered by GSAP 3 along with the Draggable
+                and Inertia plugins
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="dots"></div>
       </div>
-
-      <div class="viewport"></div>
     </div>
   </main>
   <body>
     <script src="node_modules/intersection-observer/intersection-observer.js"></script>
     <script src="https://pawelgrzybek.com/siema/assets/siema.min.js"></script>
 
-    <script src="node_modules/package/all.js"></script>
-    <!-- <script src="node_modules/gsap/src/CSSPlugin.js"></script> -->
+    <script src="node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="node_modules/gsap/dist/Draggable.min.js"></script>
+    <script src="node_modules/gsap/dist/InertiaPlugin.min.js"></script>
 
     <script src="node_modules/quicklink/dist/quicklink.umd.js"></script>
 
@@ -58,6 +76,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
     <script src="js/build/slider.js"></script>
     <script src="/js/build/production.min.js"></script>
   </body>

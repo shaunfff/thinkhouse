@@ -1,81 +1,115 @@
-// gsap.registerPlugin(InertiaPlugin);
-// gsap.registerPlugin(Draggable);
+console.clear();
 
-var $overflow = $("#overflow");
-var $viewport = $(".viewport");
-var $wrapper = $(".wrapper");
-var $boxes = $(".boxes");
-var $proxy = $("<div/>");
+const slides = document.querySelectorAll("#slideWrap");
+const container = document.querySelector("#panelWrap");
+let dur = 0.5;
+let offsets = [];
+let oldSlide = 0;
+let activeSlide = 0;
+let dots = document.querySelector(".dots");
+let navDots = [];
+let iw = window.innerWidth;
 
-var numBoxes = 10;
-var boxWidth = 350;
-var boxHeight = 250;
-var imgWidth = boxWidth - 6;
-var imgHeight = boxHeight - 14;
-var viewWidth = $viewport.width();
-var wrapWidth = numBoxes * boxWidth;
-
-TweenLite.set([$wrapper, $viewport], { height: boxHeight, xPercent: -50 });
-TweenLite.set($boxes, { left: -boxWidth });
-
-for (var i = 1; i <= numBoxes; i++) {
-  var src =
-    "https://unsplash.it/" + imgWidth + "/" + imgHeight + "?random=" + i;
-  var num = $("<div class='num'/>").text(i);
-  var img = $("<img />", { src: src, width: imgWidth, height: imgHeight });
-  var box = $("<div class='box'/>")
-    .append(img)
-    .append(num)
-    .appendTo($boxes);
-
-  TweenLite.set(box, { x: i * boxWidth, width: boxWidth, height: boxHeight });
+// create the nav dots
+for (let i = 0; i < slides.length; i++) {
+  let newDot = document.createElement("div");
+  newDot.className = "dot";
+  newDot.index = i;
+  navDots.push(newDot);
+  newDot.addEventListener("click", slideAnim);
+  dots.appendChild(newDot);
 }
 
-var animation = TweenMax.to(".box", 1, {
-  x: "+=" + wrapWidth,
-  ease: Linear.easeNone,
-  paused: true,
-  repeat: -1,
-  modifiers: {
-    x: function(x, target) {
-      x %= wrapWidth;
-      target.style.visibility = x - boxWidth > viewWidth ? "hidden" : "visible";
-      return x;
+// get elements positioned
+gsap.set(".dots", { xPercent: -50 });
+
+// lower screen animation with nav dots and rotating titles
+const dotAnim = gsap.timeline({ paused: true });
+dotAnim.to(
+  ".dot",
+  {
+    stagger: { each: 1, yoyo: true, repeat: 1 },
+    scale: 2.1,
+    rotation: 0.1,
+    ease: "none"
+  },
+  0.5
+);
+dotAnim.time(1);
+
+// make the whole thing draggable
+let dragMe = Draggable.create(container, {
+  type: "x",
+  edgeResistance: 1,
+  snap: offsets,
+  inertia: true,
+  bounds: "#masterWrap",
+  onDrag: tweenDot,
+  onThrowUpdate: tweenDot,
+  onDragEnd: slideAnim,
+  allowNativeTouchScrolling: false,
+  zIndexBoost: false
+});
+
+dragMe[0].id = "dragger";
+sizeIt();
+
+// main action check which of the 4 types of interaction called the function
+function slideAnim(e) {
+  oldSlide = activeSlide;
+  // dragging the panels
+  if (this.id === "dragger") {
+    activeSlide = offsets.indexOf(this.endX);
+  } else {
+    if (gsap.isTweening(container)) {
+      return;
+    }
+    // dot clicks
+    if (this.className === "dot") {
+      activeSlide = this.index;
+      // scrollwheel
+    } else {
+      activeSlide = e.deltaY > 0 ? (activeSlide += 1) : (activeSlide -= 1);
     }
   }
-});
-
-Draggable.create($proxy, {
-  type: "x",
-  trigger: ".wrapper",
-  throwProps: true,
-  onDrag: updateProgress,
-  onThrowUpdate: updateProgress,
-  snap: {
-    x: snapX
+  // make sure we're not past the end or beginning slide
+  activeSlide = activeSlide < 0 ? 0 : activeSlide;
+  activeSlide =
+    activeSlide > slides.length - 1 ? slides.length - 1 : activeSlide;
+  if (oldSlide === activeSlide) {
+    return;
   }
-});
-
-$overflow.on("change", applyOverflow);
-$(window).resize(resize);
-
-function snapX(x) {
-  return Math.round(x / boxWidth) * boxWidth;
-}
-
-function updateProgress() {
-  animation.progress(this.x / wrapWidth);
-}
-
-function resize() {
-  viewWidth = $viewport.width();
-  animation.render(animation.time(), false, true);
-}
-
-function applyOverflow() {
-  if ($overflow.prop("checked")) {
-    TweenLite.set(".wrapper", { overflow: "visible" });
-  } else {
-    TweenLite.set(".wrapper", { overflow: "hidden" });
+  // if we're dragging we don't animate the container
+  if (this.id != "dragger") {
+    gsap.to(container, dur, { x: offsets[activeSlide], onUpdate: tweenDot });
   }
+}
+
+// update the draggable element snap points
+function sizeIt() {
+  offsets = [];
+  iw = window.innerWidth;
+  gsap.set("#panelWrap", { width: slides.length * iw });
+  gsap.set(slides, { width: iw });
+  for (let i = 0; i < slides.length; i++) {
+    offsets.push(-slides[i].offsetLeft);
+  }
+  gsap.set(container, { x: offsets[activeSlide] });
+  dragMe[0].vars.snap = offsets;
+}
+
+gsap.set(".hideMe", { opacity: 1 });
+slides.forEach(slide => {
+  slide.addEventListener(
+    "wheel",
+    _.throttle(slideAnim, 1000, { leading: true, trailing: false })
+  );
+});
+window.addEventListener("resize", sizeIt);
+
+// update dot animation when dragger moves
+function tweenDot() {
+  gsap.set(dotAnim, {
+    time: Math.abs(gsap.getProperty(container, "x") / iw) + 1
+  });
 }
