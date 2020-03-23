@@ -98,7 +98,7 @@ function sizeIt() {
   dragMe[0].vars.snap = offsets;
 }
 
-gsap.set(".hideMe", { opacity: 1 });
+gsap.set("#slideWrap", { opacity: 1 });
 slides.forEach(slide => {
   slide.addEventListener(
     "wheel",
