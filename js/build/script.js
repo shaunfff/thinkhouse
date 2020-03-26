@@ -198,3 +198,39 @@ closeBtn.addEventListener("click", function() {
   searchBg.classList.remove("search__bg-active");
   scrim.classList.remove("scrim-active");
 });
+
+// console.clear();
+
+// window.addEventListener("scroll", function() {
+//   var windowScroll = window.pageYOffset;
+//   var $horizontalWrapper = document.querySelector("#horizontal-wrapper");
+//   // $horizontalWrapper.querySelectorAll('.inner')[0].style.transform = 'translate(-99%)';
+//   $horizontalWrapper.className = "";
+//   switch (true) {
+//     case windowScroll >=
+//       $horizontalWrapper.offsetTop +
+//         $horizontalWrapper.offsetHeight -
+//         window.innerHeight:
+//       $horizontalWrapper.classList.add("post-sticky");
+//       console.log("after");
+//       break;
+//     case windowScroll >= $horizontalWrapper.offsetTop:
+//       $horizontalWrapper.classList.add("sticky");
+
+//       var _start = windowScroll - $horizontalWrapper.offsetTop;
+//       var _end =
+//         $horizontalWrapper.offsetTop +
+//         $horizontalWrapper.offsetHeight -
+//         window.innerHeight;
+//       var pct = (_start / _end) * 100;
+//       $horizontalWrapper.querySelectorAll(".inner")[0].style.transform =
+//         "translate(-" + pct + "%)";
+
+//       break;
+//     default:
+//       $horizontalWrapper.classList.add("pre-sticky");
+//       $horizontalWrapper.querySelectorAll(".inner")[0].style.transform =
+//         "translate(0)";
+//       break;
+//   }
+// });
