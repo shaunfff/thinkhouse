@@ -68,11 +68,34 @@ let dragMe = Draggable.create(container, {
   onDragEnd: slideAnim,
   onDragEnd: opacity,
   allowNativeTouchScrolling: false,
-  zIndexBoost: false
+  zIndexBoost: false,
+  cursor: "default",
+  allowEventDefault: true
 });
 
 dragMe[0].id = "dragger";
 sizeIt();
+
+function enableSelect() {
+  container.onselectstart = null;
+  gsap.set(container, { userSelect: "text" });
+}
+
+function disableSelect() {
+  gsap.set(container, { userSelect: "none" });
+}
+
+function isSelecting() {
+  return !!window.getSelection().toString().length;
+}
+
+function isTouch(event) {
+  return event.type.indexOf("touch") > -1;
+}
+
+function isOpen() {
+  return container._gsTransform.x < 0;
+}
 
 function slideAnim(e) {
   // temp variable to see if we're at the beginning or end
