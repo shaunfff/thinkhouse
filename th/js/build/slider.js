@@ -376,13 +376,14 @@ let dots = document.querySelector(".dots");
 let navDots = [];
 let iw = container.innerWidth;
 
-// set slides background colors and create the nav dots
+// create the nav dots
 for (let i = 0; i < slides.length; i++) {
   let newDot = document.createElement("div");
   newDot.className = "dot";
   newDot.index = i;
   navDots.push(newDot);
   newDot.addEventListener("click", slideAnim);
+  newDot.addEventListener("click", tweenDot);
   dots.appendChild(newDot);
 }
 
@@ -401,15 +402,14 @@ dotAnim.to(
   0.5
 );
 
-// make the whole thing draggable
+dotAnim.time(1);
 
-// main action check which of the 4 types of interaction called the function
+// main action
 function slideAnim(e) {
   oldSlide = activeSlide;
 
   if (this.className === "dot") {
     activeSlide = this.index;
-    // scrollwheel
   } else {
     activeSlide = e.deltaY > 0 ? (activeSlide += 1) : (activeSlide -= 1);
   }
@@ -422,14 +422,21 @@ function slideAnim(e) {
     return;
   }
   tl = new gsap.timeline();
-  tl.to("#slideWrap", 0.6, { xPercent: -100 * activeSlide });
+  tl.to("#slideWrap", 0.6, {
+    xPercent: -100 * activeSlide,
+    onUpdate: tweenDot
+  });
+  // .to(
+  //   ".dot",
+  //   {
+  //     stagger: { each: 1, yoyo: true, repeat: 1 },
+  //     scale: 2.1,
+  //     rotation: 0.1,
+  //     ease: "none"
+  //   },
+  //   0.5
+  // );
 }
-
-// if we're dragging we don't animate the container
-
-// update the draggable element snap points
-
-// update dot animation when dragger moves
 
 slides.forEach(slide => {
   slide.addEventListener(
