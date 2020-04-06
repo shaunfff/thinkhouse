@@ -14,8 +14,8 @@
   <body>
     <header class="header">
       <div class="container">
-        <div class="header__logo orange-bg ">
-          <a href="/"><img src="img/th-vert-white.svg" alt=""/></a>
+        <div class="header__logo orange-bg">
+          <a href="/"><img src="img/th-vert-white.svg" alt="" /></a>
         </div>
         <div class="header__pnav fade-down">
           <div class="">
@@ -29,7 +29,7 @@
               </ul>
             </nav>
             <div class="header__search-prompt mask-container-top">
-              <a class="search-prompt"><img src="img/search.svg" alt=""/></a>
+              <a class="search-prompt"><img src="img/search.svg" alt="" /></a>
             </div>
           </div>
 
@@ -63,7 +63,7 @@
     <main class="main">
       <section class="container">
         <div class="wrapper">
-          <div class="article-header  top-padding-large">
+          <div class="article-header top-padding-large">
             <div class="article-header__text small">
               <h1>Griffith College</h1>
               <h2>An Eye On The Future</h2>
@@ -91,16 +91,45 @@
               CAO students) while creating fame for the college more widely
               amongst all student target audiences, media and industry.
             </h3>
-            <div class="wrapp2">
-              <div id="horizontal-wrapper">
-                <div class="inner">
-                  <div><h1>Block1</h1></div>
-                  <div><h1>Block2</h1></div>
-                  <div><h1>Block3</h1></div>
-                  <div><h1>Block4</h1></div>
-                  <div><h1>Block5</h1></div>
+            <div class="slider-article">
+              <div class="slide-wrapper">
+                <div id="panelWrap">
+                  <div id="slideWrap">
+                    <div class="tags">
+                      <ul>
+                        <li><a href="">Creative</a></li>
+                        <li><a href="">Strategy</a></li>
+                        <li><a href="">Digital</a></li>
+                      </ul>
+                    </div>
+                    <h4>Frank and Honest Sustainability</h4>
+                    <img src="img/frank&honest.png" alt="" />
+                  </div>
+                  <div id="slideWrap">
+                    <div class="tags">
+                      <ul>
+                        <li><a href="">Creative</a></li>
+                        <li><a href="">Strategy</a></li>
+                        <li><a href="">Digital</a></li>
+                      </ul>
+                    </div>
+                    <h4>Frank and Honest Sustainability</h4>
+                    <img src="img/fame.png" alt="" />
+                  </div>
+                  <div id="slideWrap">
+                    <div class="tags">
+                      <ul>
+                        <li><a href="">Creative</a></li>
+                        <li><a href="">Strategy</a></li>
+                        <li><a href="">Digital</a></li>
+                      </ul>
+                    </div>
+                    <h4>Frank and Honest Sustainability</h4>
+                    <img src="img/frank&honest.png" alt="" />
+                  </div>
                 </div>
               </div>
+              <div class="dots"></div>
             </div>
 
             <div class="article-intro__copy top-padding-medium">
@@ -216,7 +245,7 @@
                 Get in touch with to talk about how we can work together
               </p>
               <div class="footer__btn">
-                <a class="button " href="">Get in Touch</a>
+                <a class="button" href="">Get in Touch</a>
               </div>
             </div>
             <div class="footer__cta">
@@ -224,7 +253,7 @@
                 Get in touch with to talk about how we can work together
               </p>
               <div class="footer__btn">
-                <a class="button " href="">Get in Touch</a>
+                <a class="button" href="">Get in Touch</a>
               </div>
             </div>
           </div>
@@ -245,13 +274,13 @@
               </p>
               <ul>
                 <li>
-                  <a href=""><img src="img/facebook.svg" alt=""/></a>
+                  <a href=""><img src="img/facebook.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href=""><img src="img/instagram.svg" alt=""/></a>
+                  <a href=""><img src="img/instagram.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href=""><img src="img/twitter.svg" alt=""/></a>
+                  <a href=""><img src="img/twitter.svg" alt="" /></a>
                 </li>
               </ul>
             </div>
@@ -266,13 +295,13 @@
               </p>
               <ul>
                 <li>
-                  <a href=""><img src="img/facebook.svg" alt=""/></a>
+                  <a href=""><img src="img/facebook.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href=""><img src="img/instagram.svg" alt=""/></a>
+                  <a href=""><img src="img/instagram.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href=""><img src="img/twitter.svg" alt=""/></a>
+                  <a href=""><img src="img/twitter.svg" alt="" /></a>
                 </li>
               </ul>
             </div>
@@ -280,22 +309,17 @@
         </footer>
       </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-2.2.4.min.js"
       integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
       crossorigin="anonymous"
     ></script>
-    <script src="node_modules/intersection-observer/intersection-observer.js"></script>
-    <script src="node_modules/gsap/dist/gsap.min.js"></script>
-    <script src="node_modules/gsap/dist/Draggable.min.js"></script>
-    <script src="node_modules/gsap/dist/InertiaPlugin.min.js"></script>
-    <script src="node_modules/quicklink/dist/quicklink.umd.js"></script>
-
-    <script src="js/build/script.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <script src="th/js/libs/gsap.min.js"></script>
+    <script src="th/js/libs/quicklink.umd.js"></script>
+    <script src="th/js/build/slider.js"></script>
+    <script src="th/js/build/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-
-    <script src="/js/build/production.min.js"></script>
+    <script src="th/js/build/production.min.js"></script>
   </body>
 </html>
