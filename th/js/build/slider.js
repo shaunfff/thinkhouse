@@ -366,30 +366,228 @@
 //     }
 // }
 
+// const slides = document.querySelectorAll("#slideWrap");
+// const container = document.querySelector("#masterWrap");
+// let dur = 0.6;
+// let offsets = [];
+// let oldSlide = 0;
+// let activeSlide = 0;
+// let dots = document.querySelector(".dots");
+// let navDots = [];
+// let iw = window.innerWidth;
+
+// // create the nav dots
+// for (let i = 0; i < slides.length; i++) {
+//   let newDot = document.createElement("div");
+//   newDot.className = "dot";
+//   newDot.index = i;
+//   navDots.push(newDot);
+//   newDot.addEventListener("click", slideAnim);
+//   newDot.addEventListener("click", tweenDot);
+//   dots.appendChild(newDot);
+// }
+
+// // get elements positioned
+// gsap.set(".dots", { xPercent: -50 });
+
+// const dotAnim = gsap.timeline({ paused: true });
+// dotAnim.to(
+//   ".dot",
+//   {
+//     stagger: { each: 1, yoyo: true, repeat: 1 },
+//     scale: 2.1,
+//     rotation: 0.1,
+//     ease: "none"
+//   },
+//   0.5
+// );
+
+// dotAnim.time(1);
+
+// // main action
+// function slideAnim(e) {
+//   oldSlide = activeSlide;
+
+//   if (this.className === "dot") {
+//     activeSlide = this.index;
+//   } else {
+//     activeSlide = e.deltaY > 0 ? (activeSlide += 1) : (activeSlide -= 1);
+//   }
+
+//   // make sure we're not past the end or beginning slide
+//   activeSlide = activeSlide < 0 ? 0 : activeSlide;
+//   activeSlide =
+//     activeSlide > slides.length - 1 ? slides.length - 1 : activeSlide;
+//   if (oldSlide === activeSlide) {
+//     return;
+//   }
+//   tl = new gsap.timeline();
+//   tl.to("#slideWrap", 0.6, {
+//     xPercent: -100 * activeSlide,
+//     onUpdate: tweenDot
+//   });
+//   // .to(
+//   //   ".dot",
+//   //   {
+//   //     stagger: { each: 1, yoyo: true, repeat: 1 },
+//   //     scale: 2.1,
+//   //     rotation: 0.1,
+//   //     ease: "none"
+//   //   },
+//   //   0.5
+//   // );
+// }
+
+// slides.forEach(slide => {
+//   slide.addEventListener(
+//     "wheel",
+//     _.throttle(slideAnim, 1000, { leading: true, trailing: false })
+//   );
+// });
+
+// function tweenDot() {
+//   offsets = [];
+//   iw = window.innerWidth;
+//   gsap.set("#masterWrap", { width: slides.length * iw });
+//   gsap.set(slides, { width: iw });
+//   for (let i = 0; i < slides.length; i++) {
+//     offsets.push(-slides[i].offsetLeft);
+//   }
+//   gsap.set(container, { x: offsets[activeSlide] });
+//   gsap.set(dotAnim, {
+//     time: Math.abs(gsap.getProperty(container, "x") / iw) + 1
+//   });
+// }
+
+// const slides = document.querySelectorAll("#slideWrap");
+// const container = document.querySelector("#masterWrap");
+// let dur = 0.6;
+// let offsets = [];
+// let oldSlide = 0;
+// let activeSlide = 0;
+// let dots = document.querySelector(".dots");
+// let navDots = [];
+// let iw = window.innerWidth;
+
+// // create the nav dots
+// for (let i = 0; i < slides.length; i++) {
+//   let newDot = document.createElement("div");
+//   newDot.className = "dot";
+//   newDot.index = i;
+//   navDots.push(newDot);
+//   newDot.addEventListener("click", slideAnim);
+//   newDot.addEventListener("click", tweenDot);
+//   dots.appendChild(newDot);
+// }
+
+// // get elements positioned
+// gsap.set(".dots", { xPercent: -50 });
+
+// const dotAnim = gsap.timeline({ paused: true });
+// dotAnim.to(
+//   ".dot",
+//   {
+//     stagger: { each: 1, yoyo: true, repeat: 1 },
+//     scale: 2.1,
+//     rotation: 0.1,
+//     ease: "none"
+//   },
+//   0.5
+// );
+
+// dotAnim.time(1);
+
+// // main action
+// function slideAnim(e) {
+//   console.log(this.className);
+//   oldSlide = activeSlide;
+
+//   if (this.className === "dot") {
+//     console.info(this.index);
+//     activeSlide = this.index;
+//     sizeIt();
+//   } else {
+//     activeSlide = e.deltaY > 0 ? (activeSlide += 1) : (activeSlide -= 1);
+//   }
+
+//   // make sure we're not past the end or beginning slide
+//   activeSlide = activeSlide < 0 ? 0 : activeSlide;
+//   activeSlide =
+//     activeSlide > slides.length - 1 ? slides.length - 1 : activeSlide;
+//   if (oldSlide === activeSlide) {
+//     return;
+//   }
+//   //   tl = new gsap.timeline();
+//   //   tl.to("#slideWrap", 0.6, {
+//   //     xPercent: -100 * activeSlide,
+//   //     onUpdate: tweenDot
+//   //   });
+//   // .to(
+//   //   ".dot",
+//   //   {
+//   //     stagger: { each: 1, yoyo: true, repeat: 1 },
+//   //     scale: 2.1,
+//   //     rotation: 0.1,
+//   //     ease: "none"
+//   //   },
+//   //   0.5
+//   // );
+// }
+
+// function sizeIt() {
+//   offsets = [];
+//   iw = window.innerWidth;
+//   gsap.set("#masterWrap", { width: slides.length * iw });
+//   gsap.set(slides, { width: iw });
+//   for (let i = 0; i < slides.length; i++) {
+//     offsets.push(-slides[i].offsetLeft);
+//   }
+//   gsap.set(container, { x: offsets[activeSlide] });
+//   // dragMe[0].vars.snap = offsets;
+// }
+
+// slides.forEach(slide => {
+//   slide.addEventListener(
+//     "wheel",
+//     _.throttle(slideAnim, 1000, { leading: true, trailing: false })
+//   );
+// });
+
+// function tweenDot() {
+//   console.info(gsap.getProperty(container, "x"));
+//   console.info(iw);
+//   gsap.set(dotAnim, {
+//     time: Math.abs(gsap.getProperty(container, "x") / iw) + 1
+//   });
+// }
+
+console.clear();
 const slides = document.querySelectorAll("#slideWrap");
-const container = document.querySelector("#masterWrap");
-let dur = 0.6;
+const container = document.querySelector("#panelWrap");
+let dur = 0.5;
 let offsets = [];
 let oldSlide = 0;
 let activeSlide = 0;
 let dots = document.querySelector(".dots");
 let navDots = [];
-let iw = container.innerWidth;
+let iw = window.innerWidth;
 
-// create the nav dots
+// set slides background colors and create the nav dots
 for (let i = 0; i < slides.length; i++) {
   let newDot = document.createElement("div");
   newDot.className = "dot";
   newDot.index = i;
   navDots.push(newDot);
   newDot.addEventListener("click", slideAnim);
-  newDot.addEventListener("click", tweenDot);
   dots.appendChild(newDot);
 }
+
+// icon animations for slide 1
 
 // get elements positioned
 gsap.set(".dots", { xPercent: -50 });
 
+// lower screen animation with nav dots and rotating titles
 const dotAnim = gsap.timeline({ paused: true });
 dotAnim.to(
   ".dot",
@@ -401,15 +599,35 @@ dotAnim.to(
   },
   0.5
 );
-
 dotAnim.time(1);
 
-// main action
+// make the whole thing draggable
+// let dragMe = Draggable.create(container, {
+//   type: "x",
+//   edgeResistance: 1,
+//   snap: offsets,
+//   inertia: true,
+//   bounds: "#masterWrap",
+//   onDrag: tweenDot,
+//   onThrowUpdate: tweenDot,
+//   onDragEnd: slideAnim,
+//   allowNativeTouchScrolling: false,
+//   zIndexBoost: false
+// });
+
+// dragMe[0].id = "dragger";
+sizeIt();
+
+// main action check which of the 4 types of interaction called the function
 function slideAnim(e) {
   oldSlide = activeSlide;
-
+  // dragging the panels
+  if (gsap.isTweening(container)) {
+    return;
+  }
   if (this.className === "dot") {
     activeSlide = this.index;
+    // scrollwheel
   } else {
     activeSlide = e.deltaY > 0 ? (activeSlide += 1) : (activeSlide -= 1);
   }
@@ -421,30 +639,30 @@ function slideAnim(e) {
   if (oldSlide === activeSlide) {
     return;
   }
-  tl = new gsap.timeline();
-  tl.to("#slideWrap", 0.6, {
-    xPercent: -100 * activeSlide,
-    onUpdate: tweenDot
-  });
-  // .to(
-  //   ".dot",
-  //   {
-  //     stagger: { each: 1, yoyo: true, repeat: 1 },
-  //     scale: 2.1,
-  //     rotation: 0.1,
-  //     ease: "none"
-  //   },
-  //   0.5
-  // );
+  // if we're dragging we don't animate the container
+  if (this.id != "dragger") {
+    gsap.to(container, dur, { x: offsets[activeSlide], onUpdate: tweenDot });
+  }
 }
 
-slides.forEach(slide => {
-  slide.addEventListener(
-    "wheel",
-    _.throttle(slideAnim, 1000, { leading: true, trailing: false })
-  );
-});
+// update the draggable element snap points
+function sizeIt() {
+  offsets = [];
+  iw = window.innerWidth;
+  gsap.set("#panelWrap", { width: slides.length * iw });
+  gsap.set(slides, { width: iw });
+  for (let i = 0; i < slides.length; i++) {
+    offsets.push(-slides[i].offsetLeft);
+  }
+  gsap.set(container, { x: offsets[activeSlide] });
+  // dragMe[0].vars.snap = offsets;
+}
 
+gsap.set(".hideMe", { opacity: 1 });
+container.addEventListener("wheel", slideAnim);
+window.addEventListener("resize", sizeIt);
+
+// update dot animation when dragger moves
 function tweenDot() {
   gsap.set(dotAnim, {
     time: Math.abs(gsap.getProperty(container, "x") / iw) + 1
