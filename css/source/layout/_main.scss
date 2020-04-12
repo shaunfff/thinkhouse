@@ -61,7 +61,7 @@ body {
   position: relative;
   &__btn {
     position: absolute;
-    z-index: 100;
+    z-index: 5;
     bottom: -30px;
     right: 60px;
     @include media("<medium") {
@@ -515,7 +515,7 @@ img {
   &__btn {
     position: absolute;
     @extend %rightBottom;
-    z-index: 100;
+    z-index: 5;
   }
 }
 a.button {
@@ -1144,7 +1144,7 @@ a.button {
 
       .service-list {
         @extend %marginLeft;
-        z-index: 101;
+        z-index: 5;
         position: absolute;
         top: 25%;
 
@@ -2483,7 +2483,7 @@ a.button {
   width: inherit;
   height: 100vh;
   overflow: hidden;
-  z-index: 99999;
+  z-index: 10;
   pointer-events: none;
 }
 .b-transition {

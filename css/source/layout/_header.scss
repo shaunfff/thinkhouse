@@ -36,7 +36,7 @@
     top: 0;
     width: 60px;
     max-width: 100%;
-    z-index: 1;
+    z-index: 11;
     @include media("<small") {
       position: absolute;
     }
@@ -246,9 +246,9 @@
   opacity: 1 !important;
 }
 
-.opaque:hover {
-  color: $orange;
-}
+// .opaque:hover {
+//   color: $orange;
+// }
 
 .search {
   &__bg {
@@ -325,8 +325,8 @@
       cursor: pointer;
       display: block;
       position: absolute;
-      top: 5%;
-      right: 2%;
+      top: 4.5%;
+      right: 2.5%;
       span {
         display: block;
         position: absolute;
