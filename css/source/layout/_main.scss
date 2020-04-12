@@ -2410,114 +2410,57 @@ a.button {
 }
 
 .slider-article {
-  background-color: black;
+  background-color: white;
   .slide-wrapper {
     overflow: hidden;
 
     width: 100%;
     position: relative;
-    height: 750px;
+    height: 650px;
     @include media("<=hi") {
-      height: 630px;
+      height: 530px;
     }
     @include media("<large") {
-      height: 520px;
+      height: 420px;
     }
     @include media("<medium") {
-      height: 410px;
+      height: 310px;
     }
 
     @include media("<small") {
-      height: 300px;
+      height: 200px;
     }
     #panelWrap {
       height: 100%;
-      width: 100%;
+      width: 33vw;
       #slideWrap {
-        height: 100%;
-        width: 100%;
         position: relative;
         float: left;
-        .tags {
-          z-index: 1;
-          position: absolute;
-          top: 0;
-          left: 50%;
-          transform: translate(-50%, 0);
-          ul {
-            display: flex;
-            li {
-              padding: 10px 10px 0 0;
-              @extend %small-tag;
-              font-weight: $demi;
-              border-bottom-width: 70%;
-              text-transform: uppercase;
-              &:after {
-                content: ",";
-                color: $white;
-              }
-              a {
-                color: $white;
-                position: relative;
-                &:before {
-                  content: "";
-                  position: absolute;
-                  left: 0;
-                  bottom: 0;
-                  height: 1px;
-                  width: 100%;
-                  border-bottom: 0.15em solid $white;
-                }
-              }
-            }
-          }
-        }
-        h4 {
-          width: 90%;
-          text-align: center;
-          font-weight: $demi;
-          color: $white;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 1;
-          @extend %xxxlarge;
-        }
-        img {
-          filter: brightness(75%);
 
-          position: absolute;
-          z-index: 0;
-          background-size: cover;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          min-width: 100%;
-          min-height: 100%;
-          // width: auto;
-          width: stretch;
-          height: stretch;
+        img {
+          width: 75%;
         }
       }
     }
   }
-  .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 100%;
-    position: relative;
-    background-color: #fff;
-    margin: 12px 8px;
-    cursor: pointer;
+}
 
-    float: left;
-  }
+.preloader {
+  clip-path: inset(0 0 0 0);
+  z-index: 99999;
+  position: fixed;
+  top: 0;
+  bottom: auto;
+  left: calc((100% - #{$width-outer-max}) / 2);
+  right: calc((100% - #{$width-outer-max}) / 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .dots {
-    position: absolute;
-    z-index: 100;
-    left: 50%;
-    bottom: 16px;
+  height: 100vh;
+  background-color: $orange;
+
+  img {
+    width: 50%;
   }
 }

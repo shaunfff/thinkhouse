@@ -1,16 +1,99 @@
-window.addEventListener("DOMContentLoaded", () => {
-  quicklink.listen();
-});
+// const loader = gsap.timeline().from(
+//   maskedRight,
+//   {
+//     clipPath: "inset(0 100% 0 0)",
+//     ease: Expo.easeInOut,
+//     duration: 0.8,
+//   },
+//   0
+// );
+
+// let preload = () => {
+//   const maskedRight = document.querySelectorAll(
+//     ".preloader .preload"
+//   );
+
+//   let interval = 0;
+//   blocks.forEach((block, i) => {
+//     setTimeout(() => {
+//       animate(block, i);
+//     }, interval);
+//     interval += 500;
+//   });
+
+//   function animate(block, index) {
+//     let position = index;
+//     setInterval(() => {
+//       switch (position) {
+//         case 0:
+//           block.style.top = "40px";
+//           position = 3;
+//           break;
+//         case 1:
+//           block.style.left = "40px";
+//           position = 0;
+//           break;
+//         case 2:
+//           block.style.top = "0px";
+//           position - 1;
+//         case 3:
+//           block.style.left = "0px";
+//           position = 2;
+//           break;
+//       }
+//     }, 1500);
+//   }
+//   preload();
+
+//   const preloader = document.querySelector(".preloader");
+//   function finishedLoading() {
+//     preloader.style.opacity = 0;
+//     setTimeout(() => {
+//       preloader.style.display = "none";
+//     }, 500);
+//   }
+// };
+
+// window.onload = function () {
+//   setTimeout(() => {
+//     finishedLoading();
+//   }, 50000);
+// };
+
+const preloader = document.querySelectorAll(".preloader");
+
+function finishedLoading() {
+  gsap.to(
+    preloader,
+    {
+      clipPath: "inset(0 100% 0 0)",
+      ease: Expo.easeInOut,
+      duration: 5.8,
+    },
+    0
+  );
+  setTimeout(() => {}, 3500);
+}
+window.onload = function () {
+  setTimeout(() => {
+    finishedLoading();
+  }, 100);
+};
+
+// window.addEventListener("DOMContentLoaded", () => {
+//   quicklink.listen();
+// });
+////homepage/headers/////
 
 ////ANIMATION/////
 
 gsap.config({
   nullTargetWarn: false,
-  units: { left: "%", top: "%", rotation: "rad" }
+  units: { left: "%", top: "%", rotation: "rad" },
 });
 
-const callback = entries => {
-  entries.forEach(entry => {
+const callback = (entries) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.timeline.play();
       // console.log(entry);
@@ -24,13 +107,13 @@ const callback = entries => {
 const options = {
   root: null,
   rootMargin: "10% 0% -10% 0%",
-  threshold: 0.2
+  threshold: 0.2,
 };
 
 const observer = new IntersectionObserver(callback, options);
 const targets = document.querySelectorAll(".anim");
 
-targets.forEach(target => {
+targets.forEach((target) => {
   const maskTop = target.querySelectorAll(".mask-container-top");
   const maskLeft = target.querySelectorAll(".mask-container-left");
   const maskBtn = target.querySelectorAll(".mask-container");
@@ -46,7 +129,7 @@ targets.forEach(target => {
       {
         clipPath: "inset(0 100% 0 0)",
         ease: Expo.easeInOut,
-        duration: 0.8
+        duration: 0.8,
       },
       0
     )
@@ -57,7 +140,7 @@ targets.forEach(target => {
         clipPath: "inset(0 0 0 100%)",
         ease: Expo.easeInOut,
         stagger: 0.2,
-        duration: 0.9
+        duration: 0.9,
       },
       0
     )
@@ -68,7 +151,7 @@ targets.forEach(target => {
       {
         clipPath: "inset(0 0 0 100%)",
         ease: Expo.easeInOut,
-        duration: 0.8
+        duration: 0.8,
       },
       0
     )
@@ -78,7 +161,7 @@ targets.forEach(target => {
         clipPath: "inset(0 0 100% 0)",
         ease: Expo.easeInOut,
         stagger: 0.2,
-        duration: 0.9
+        duration: 0.9,
       },
       0
     )
@@ -87,7 +170,7 @@ targets.forEach(target => {
       {
         y: -80,
         opacity: 0,
-        duration: 0.9
+        duration: 0.9,
       },
       0
     );
@@ -95,21 +178,21 @@ targets.forEach(target => {
   target.timeline = action;
 });
 
-Array.prototype.forEach.call(targets, el => {
+Array.prototype.forEach.call(targets, (el) => {
   observer.observe(el);
 });
 
 ////////LAZY LOAD////////
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 
   if ("IntersectionObserver" in window) {
-    let lazyImageObserver = new IntersectionObserver(function(
+    let lazyImageObserver = new IntersectionObserver(function (
       entries,
       observer
     ) {
-      entries.forEach(function(entry) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           let lazyImage = entry.target;
           lazyImage.src = lazyImage.dataset.src;
@@ -119,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
 
-    lazyImages.forEach(function(lazyImage) {
+    lazyImages.forEach(function (lazyImage) {
       lazyImageObserver.observe(lazyImage);
     });
   } else {
@@ -129,7 +212,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 var doc = $(document);
 
-doc.scroll(function() {
+doc.scroll(function () {
   // make sure to wrap yours entire footer in some css selector
   var footer = $("footer");
   var p = $(".header__logo");
@@ -149,15 +232,15 @@ doc.scroll(function() {
 
 // Video
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
 
   if ("IntersectionObserver" in window) {
-    var lazyVideoObserver = new IntersectionObserver(function(
+    var lazyVideoObserver = new IntersectionObserver(function (
       entries,
       observer
     ) {
-      entries.forEach(function(video) {
+      entries.forEach(function (video) {
         if (video.isIntersecting) {
           for (var source in video.target.children) {
             var videoSource = video.target.children[source];
@@ -176,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
 
-    lazyVideos.forEach(function(lazyVideo) {
+    lazyVideos.forEach(function (lazyVideo) {
       lazyVideoObserver.observe(lazyVideo);
     });
   }
@@ -189,12 +272,12 @@ var closeBtn = document.querySelector(".close-search");
 var scrim = document.querySelector(".scrim");
 var searchBg = document.querySelector(".search__bg");
 
-searchBtn.addEventListener("click", function() {
+searchBtn.addEventListener("click", function () {
   scrim.classList.add("scrim-active");
   searchBg.classList.add("search__bg-active");
 });
 
-closeBtn.addEventListener("click", function() {
+closeBtn.addEventListener("click", function () {
   searchBg.classList.remove("search__bg-active");
   scrim.classList.remove("scrim-active");
 });
