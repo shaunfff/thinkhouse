@@ -10,10 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="/css/build/production.min.css" rel="stylesheet" />
   </head>
-  <body>
+  <body data-barba="wrapper">
     <header class="header">
       <div class="container anim">
-        <div class="header__logo orange-bg mask-container-right">
+        <div class="header__logo mask-container-right">
           <a href="/"
             ><img class="logo-scroll" src="img/th-vert-white.svg" alt=""
           /></a>
@@ -50,6 +50,7 @@
             </div>
           </div>
         </div>
+
         <div class="header__menu-toggle">
           <a href="#">
             <span></span>
@@ -59,13 +60,18 @@
         </div>
       </div>
     </header>
-    <main class="main">
+    <div class="b-transition">
+      <div class="load-container">
+        <div class="loading-screen"></div>
+      </div>
+    </div>
+    <main class="main" data-barba="container" data-barba-namespace="home">
       <section class="container">
         <div class="wrapper">
           <div class="hero-head">
-            <div class="preloader">
+            <!-- <div class="preloader">
               <img class="preload" src="img/th-hor-white.svg" alt="" />
-            </div>
+            </div> -->
             <div class="cover">
               <div class="cover__asset mask-container-top">
                 <img src="img/hero-home.png" alt="" />
@@ -351,6 +357,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
     <script src="th/js/libs/gsap.min.js"></script>
     <script src="th/js/libs/quicklink.umd.js"></script>
     <script src="th/js/build/slider.js"></script>

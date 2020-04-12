@@ -10,11 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="/css/build/production.min.css" rel="stylesheet" />
   </head>
-  <body>
+  <body data-barba="wrapper">
     <header class="header">
       <div class="container">
-        <div class="header__logo orange-bg mask-container-top">
-          <a href="/"><img src="img/th-vert-white.svg" alt=""/></a>
+        <div class="header__logo mask-container-top">
+          <a href="/"><img src="img/th-vert-white.svg" alt="" /></a>
         </div>
         <div class="header__pnav fade-down">
           <div class="">
@@ -28,7 +28,7 @@
               </ul>
             </nav>
             <div class="header__search-prompt mask-container-top">
-              <a class="search-prompt"><img src="img/search.svg" alt=""/></a>
+              <a class="search-prompt"><img src="img/search.svg" alt="" /></a>
             </div>
           </div>
 
@@ -57,12 +57,21 @@
             <span></span>
           </a>
         </div>
+        <div class="wrapper">
+          <div class="load-container">
+            <div class="loading-screen"></div>
+          </div>
+        </div>
       </div>
     </header>
-    <main class="main">
+    <main
+      class="main"
+      data-barba="container"
+      data-barba-namespace="job-article"
+    >
       <section class="container">
         <div class="wrapper">
-          <div class="article-header  top-padding-large">
+          <div class="article-header top-padding-large">
             <div class="article-header__text small">
               <h1>Careers</h1>
               <h2>Director of Photography</h2>
@@ -75,7 +84,7 @@
           </div>
         </div>
         <div class="wrapper">
-          <div class="job-details  grey-bg">
+          <div class="job-details grey-bg">
             <h3>
               The Basics:
             </h3>
@@ -101,7 +110,7 @@
           </div>
         </div>
         <div class="wrapper">
-          <div class="job-article-intro  white-bg">
+          <div class="job-article-intro white-bg">
             <h3 class="top-padding-small">
               Are you a client service wiz bursting with creativity but also
               exceptionally organised? <br />
@@ -123,7 +132,7 @@
           </div>
         </div>
         <div class="wrapper">
-          <div class="job-article-copy  grey-bg">
+          <div class="job-article-copy grey-bg">
             <h4>What you'll be doing:</h4>
 
             <p>
@@ -187,7 +196,7 @@
             </p>
           </div>
         </div>
-        <div class="wrapper ">
+        <div class="wrapper">
           <div class="apply white-bg">
             <h3 class="top-padding-medium">
               Apply Here or send a CV and cover letter to be sent to
@@ -214,7 +223,7 @@
                 Get in touch with to talk about how we can work together
               </p>
               <div class="footer__btn">
-                <a class="button " href="">Get in Touch</a>
+                <a class="button" href="">Get in Touch</a>
               </div>
             </div>
             <div class="footer__cta">
@@ -222,7 +231,7 @@
                 Get in touch with to talk about how we can work together
               </p>
               <div class="footer__btn">
-                <a class="button " href="">Get in Touch</a>
+                <a class="button" href="">Get in Touch</a>
               </div>
             </div>
           </div>
@@ -243,13 +252,13 @@
               </p>
               <ul>
                 <li>
-                  <a href=""><img src="img/facebook.svg" alt=""/></a>
+                  <a href=""><img src="img/facebook.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href=""><img src="img/instagram.svg" alt=""/></a>
+                  <a href=""><img src="img/instagram.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href=""><img src="img/twitter.svg" alt=""/></a>
+                  <a href=""><img src="img/twitter.svg" alt="" /></a>
                 </li>
               </ul>
             </div>
@@ -264,13 +273,13 @@
               </p>
               <ul>
                 <li>
-                  <a href=""><img src="img/facebook.svg" alt=""/></a>
+                  <a href=""><img src="img/facebook.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href=""><img src="img/instagram.svg" alt=""/></a>
+                  <a href=""><img src="img/instagram.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href=""><img src="img/twitter.svg" alt=""/></a>
+                  <a href=""><img src="img/twitter.svg" alt="" /></a>
                 </li>
               </ul>
             </div>
@@ -284,6 +293,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
     <script src="th/js/libs/gsap.min.js"></script>
     <script src="th/js/libs/quicklink.umd.js"></script>
     <script src="th/js/build/slider.js"></script>

@@ -1,90 +1,3 @@
-// const loader = gsap.timeline().from(
-//   maskedRight,
-//   {
-//     clipPath: "inset(0 100% 0 0)",
-//     ease: Expo.easeInOut,
-//     duration: 0.8,
-//   },
-//   0
-// );
-
-// let preload = () => {
-//   const maskedRight = document.querySelectorAll(
-//     ".preloader .preload"
-//   );
-
-//   let interval = 0;
-//   blocks.forEach((block, i) => {
-//     setTimeout(() => {
-//       animate(block, i);
-//     }, interval);
-//     interval += 500;
-//   });
-
-//   function animate(block, index) {
-//     let position = index;
-//     setInterval(() => {
-//       switch (position) {
-//         case 0:
-//           block.style.top = "40px";
-//           position = 3;
-//           break;
-//         case 1:
-//           block.style.left = "40px";
-//           position = 0;
-//           break;
-//         case 2:
-//           block.style.top = "0px";
-//           position - 1;
-//         case 3:
-//           block.style.left = "0px";
-//           position = 2;
-//           break;
-//       }
-//     }, 1500);
-//   }
-//   preload();
-
-//   const preloader = document.querySelector(".preloader");
-//   function finishedLoading() {
-//     preloader.style.opacity = 0;
-//     setTimeout(() => {
-//       preloader.style.display = "none";
-//     }, 500);
-//   }
-// };
-
-// window.onload = function () {
-//   setTimeout(() => {
-//     finishedLoading();
-//   }, 50000);
-// };
-
-const preloader = document.querySelectorAll(".preloader");
-
-function finishedLoading() {
-  gsap.to(
-    preloader,
-    {
-      clipPath: "inset(0 100% 0 0)",
-      ease: Expo.easeInOut,
-      duration: 5.8,
-    },
-    0
-  );
-  setTimeout(() => {}, 3500);
-}
-window.onload = function () {
-  setTimeout(() => {
-    finishedLoading();
-  }, 100);
-};
-
-// window.addEventListener("DOMContentLoaded", () => {
-//   quicklink.listen();
-// });
-////homepage/headers/////
-
 ////ANIMATION/////
 
 gsap.config({
@@ -180,6 +93,71 @@ targets.forEach((target) => {
 
 Array.prototype.forEach.call(targets, (el) => {
   observer.observe(el);
+});
+
+function delay(n) {
+  n = n || 2000;
+  return new Promise((done) => {
+    setTimeout(() => {
+      done();
+    }, n);
+  });
+}
+
+function pageTransition() {
+  var tl = gsap.timeline();
+  tl.to(".loading-screen", {
+    duration: 1.2,
+    width: "100%",
+    left: "0%",
+    ease: "Expo.easeInOut",
+  });
+
+  tl.to(".loading-screen", {
+    duration: 1,
+    width: "100%",
+    left: "100%",
+    ease: "Expo.easeInOut",
+    delay: 0.3,
+  });
+  tl.set(".loading-screen", { left: "-100%" });
+}
+
+function contentAnimation() {
+  var tl = gsap.timeline();
+  tl.from(".animate-this", {
+    duration: 1,
+    y: 30,
+    opacity: 0,
+    stagger: 0.4,
+    delay: 0.2,
+  });
+}
+
+$(function () {
+  barba.init({
+    sync: true,
+
+    transitions: [
+      {
+        async leave(data) {
+          const done = this.async();
+
+          pageTransition();
+          await delay(1000);
+          done();
+        },
+
+        async enter(data) {
+          contentAnimation();
+        },
+
+        async once(data) {
+          contentAnimation();
+        },
+      },
+    ],
+  });
 });
 
 ////////LAZY LOAD////////

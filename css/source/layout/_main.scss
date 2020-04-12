@@ -2445,22 +2445,49 @@ a.button {
   }
 }
 
-.preloader {
-  clip-path: inset(0 0 0 0);
-  z-index: 99999;
-  position: fixed;
-  top: 0;
-  bottom: auto;
-  left: calc((100% - #{$width-outer-max}) / 2);
-  right: calc((100% - #{$width-outer-max}) / 2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+// .preloader {
+//   clip-path: inset(0 0 0 0);
+//   z-index: 99999;
+//   position: fixed;
+//   top: 0;
+//   bottom: auto;
+//   left: calc((100% - #{$width-outer-max}) / 2);
+//   right: calc((100% - #{$width-outer-max}) / 2);
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
 
-  height: 100vh;
+//   height: 100vh;
+//   background-color: $orange;
+
+//   img {
+//     width: 50%;
+//   }
+// }
+
+.loading-screen {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
   background-color: $orange;
-
-  img {
-    width: 50%;
-  }
+  width: 0%;
+  height: 100%;
+  overflow: hidden;
+}
+.load-container {
+  position: fixed;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  width: inherit;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 99999;
+  pointer-events: none;
+}
+.b-transition {
+  width: $width-outer-max;
+  max-width: 100%;
+  margin: 0 auto;
 }

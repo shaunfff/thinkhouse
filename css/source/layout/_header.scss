@@ -246,6 +246,10 @@
   opacity: 1 !important;
 }
 
+.opaque:hover {
+  color: $orange;
+}
+
 .search {
   &__bg {
     display: flex;

@@ -10,11 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="/css/build/production.min.css" rel="stylesheet" />
   </head>
-  <body>
+  <body data-barba="wrapper">
     <header class="header">
       <div class="container">
         <div class="header__logo mask-container-top">
-          <a href="/"><img src="img/th-vert-white.svg" alt=""/></a>
+          <a href="/"><img src="img/th-vert-white.svg" alt="" /></a>
         </div>
         <div class="header__pnav fade-down">
           <div class="">
@@ -28,7 +28,7 @@
               </ul>
             </nav>
             <div class="header__search-prompt mask-container-top">
-              <a class="search-prompt"><img src="img/search.svg" alt=""/></a>
+              <a class="search-prompt"><img src="img/search.svg" alt="" /></a>
             </div>
           </div>
 
@@ -57,10 +57,15 @@
             <span></span>
           </a>
         </div>
+        <div class="wrapper">
+          <div class="load-container">
+            <div class="loading-screen"></div>
+          </div>
+        </div>
       </div>
     </header>
-    <main class="main ">
-      <section class="container black-bg top-padding-large">
+    <main class="main" data-barba="container" data-barba-namespace="youth">
+      <section class="container top-padding-large">
         <div class="wrapper">
           <div class="youth-header bottom-padding-small">
             <div class="youth-header__text mask-container small">
@@ -127,7 +132,7 @@
                 Get in touch with to talk about how we can work together
               </p>
               <div class="footer__btn">
-                <a class="button " href="">Get in Touch</a>
+                <a class="button" href="">Get in Touch</a>
               </div>
             </div>
             <div class="footer__cta">
@@ -135,7 +140,7 @@
                 Get in touch with to talk about how we can work together
               </p>
               <div class="footer__btn">
-                <a class="button " href="">Get in Touch</a>
+                <a class="button" href="">Get in Touch</a>
               </div>
             </div>
           </div>
@@ -156,13 +161,13 @@
               </p>
               <ul>
                 <li>
-                  <a href=""><img src="img/facebook.svg" alt=""/></a>
+                  <a href=""><img src="img/facebook.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href=""><img src="img/instagram.svg" alt=""/></a>
+                  <a href=""><img src="img/instagram.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href=""><img src="img/twitter.svg" alt=""/></a>
+                  <a href=""><img src="img/twitter.svg" alt="" /></a>
                 </li>
               </ul>
             </div>
@@ -177,13 +182,13 @@
               </p>
               <ul>
                 <li>
-                  <a href=""><img src="img/facebook.svg" alt=""/></a>
+                  <a href=""><img src="img/facebook.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href=""><img src="img/instagram.svg" alt=""/></a>
+                  <a href=""><img src="img/instagram.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href=""><img src="img/twitter.svg" alt=""/></a>
+                  <a href=""><img src="img/twitter.svg" alt="" /></a>
                 </li>
               </ul>
             </div>
@@ -197,6 +202,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
     <script src="th/js/libs/gsap.min.js"></script>
     <script src="th/js/libs/quicklink.umd.js"></script>
     <script src="th/js/build/slider.js"></script>
