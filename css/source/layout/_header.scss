@@ -73,9 +73,9 @@
       }
       @include media("<=small") {
         left: 0;
-        width: 25px;
+        width: 20px;
         a {
-          width: 25px;
+          width: 20px;
         }
       }
     }
@@ -326,7 +326,7 @@
       display: block;
       position: absolute;
       top: 4.5%;
-      right: 2.5%;
+      right: 1.5%;
       span {
         display: block;
         position: absolute;
@@ -375,11 +375,4 @@
   visibility: visible;
   opacity: 1;
   transition: visibility 0s linear 0s, opacity 150ms;
-}
-
-.logo-fixed {
-  position: absolute;
-  transform: translateY(500vh);
-  bottom: 0;
-  top: auto;
 }

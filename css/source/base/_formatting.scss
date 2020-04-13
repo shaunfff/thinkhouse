@@ -88,7 +88,7 @@ em {
 }
 
 %youth-feature {
-  @include fluid-type($bp-small, $bp-hi, $f-large, $f-youth-feature);
+  @include fluid-type($bp-small, $bp-hi, $f-medium-feature, $f-youth-feature);
   line-height: 1.1;
   @include media("<=medium") {
     line-height: 1.2;
@@ -105,23 +105,11 @@ em {
   font-family: $feature-font;
   font-weight: lighter;
   line-height: 1.2;
-  @include media("<=medium") {
-    line-height: 1.4;
-  }
-}
-
-%xxlarge-next {
-  @include fluid-type($bp-small, $bp-hi, $f-body, $f-xxlarge);
-  line-height: 1.1;
 }
 
 %xxlarge {
-  @include fluid-type($bp-small, $bp-hi, $f-small, $f-xxlarge);
-  font-weight: lighter;
-  line-height: 1.2;
-  @include media("<=medium") {
-    line-height: 1.4;
-  }
+  @include fluid-type($bp-small, $bp-hi, $f-body, $f-xxlarge);
+  line-height: 1.1;
 }
 
 %xlarge-feature {

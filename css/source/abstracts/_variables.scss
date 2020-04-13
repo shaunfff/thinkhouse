@@ -15,6 +15,7 @@ $f-small: 22px;
 $f-body: 24px;
 $f-body-list: 28px;
 $f-medium: 32px;
+$f-medium-feature: 40px;
 $f-large: 48px;
 $f-xlarge: 58px;
 $f-xxlarge: 68px;
@@ -67,7 +68,7 @@ $breakpoints: (
   small: 480px,
   medium: 640px,
   large: 960px,
-  hi: 1200px
+  hi: 1200px,
 );
 
 // Timing

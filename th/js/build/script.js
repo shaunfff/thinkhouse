@@ -1,124 +1,22 @@
-////ANIMATION/////
+///barba
 
-gsap.config({
-  nullTargetWarn: false,
-  units: { left: "%", top: "%", rotation: "rad" },
-});
-
-const callback = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.timeline.play();
-      // console.log(entry);
-      observer.unobserve(entry.target);
-    } else {
-      //entry.target.timeline.pause(0);
-    }
-  });
-};
-
-const options = {
-  root: null,
-  rootMargin: "10% 0% -10% 0%",
-  threshold: 0.2,
-};
-
-const observer = new IntersectionObserver(callback, options);
-const targets = document.querySelectorAll(".anim");
-
-targets.forEach((target) => {
-  const maskTop = target.querySelectorAll(".mask-container-top");
-  const maskLeft = target.querySelectorAll(".mask-container-left");
-  const maskBtn = target.querySelectorAll(".mask-container");
-  const maskRight = target.querySelectorAll(".mask-container-right");
-  const fadeDown = target.querySelectorAll(".fade-down");
-  // const text = target.querySelectorAll(".text-animate");
-  // const t = new SplitText(target, { type: "chars, lines" });
-
-  const action = gsap
-    .timeline({ paused: true })
-    .from(
-      maskRight,
-      {
-        clipPath: "inset(0 100% 0 0)",
-        ease: Expo.easeInOut,
-        duration: 0.8,
-      },
-      0
-    )
-
-    .from(
-      maskLeft,
-      {
-        clipPath: "inset(0 0 0 100%)",
-        ease: Expo.easeInOut,
-        stagger: 0.2,
-        duration: 0.9,
-      },
-      0
-    )
-
-    // .from(t.chars, { y: -150, duration: 0.5 })
-    .from(
-      maskBtn,
-      {
-        clipPath: "inset(0 0 0 100%)",
-        ease: Expo.easeInOut,
-        duration: 0.8,
-      },
-      0
-    )
-    .from(
-      maskTop,
-      {
-        clipPath: "inset(0 0 100% 0)",
-        ease: Expo.easeInOut,
-        stagger: 0.2,
-        duration: 0.9,
-      },
-      0
-    )
-    .from(
-      fadeDown,
-      {
-        y: -80,
-        opacity: 0,
-        duration: 0.9,
-      },
-      0
-    );
-
-  target.timeline = action;
-});
-
-Array.prototype.forEach.call(targets, (el) => {
-  observer.observe(el);
-});
-
-function delay(n) {
-  n = n || 2000;
-  return new Promise((done) => {
-    setTimeout(() => {
-      done();
-    }, n);
-  });
-}
+const colorArray = ["#fd5207", "#00000"];
 
 function pageTransition() {
   var tl = gsap.timeline();
   tl.to(".loading-screen", {
-    duration: 1.2,
+    duration: 1,
     width: "100%",
     left: "0%",
     ease: "Expo.easeInOut",
   });
 
   tl.to(".loading-screen", {
-    duration: 1,
+    duration: 0.8,
     width: "100%",
     left: "100%",
     ease: "Expo.easeInOut",
-    delay: 0.3,
+    delay: 0.1,
   });
   tl.set(".loading-screen", { left: "-100%" });
 }
@@ -134,10 +32,129 @@ function contentAnimation() {
   });
 }
 
-$(function () {
-  barba.init({
-    sync: true,
+function delay(n) {
+  n = n || 1000;
+  return new Promise((done) => {
+    setTimeout(() => {
+      done();
+    }, n);
+  });
+}
 
+document.addEventListener("DOMContentLoaded", function () {
+  barba.init({
+    views: [
+      {
+        namespace: "home",
+        beforeEnter(data) {
+          // do something before leaving the current `index` namespace
+        },
+      },
+      {
+        namespace: "home",
+        beforeEnter(data) {
+          ////ANIMATION/////
+
+          gsap.config({
+            nullTargetWarn: false,
+            units: { left: "%", top: "%", rotation: "rad" },
+          });
+
+          const callback = (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.timeline.play();
+                // console.log(entry);
+                observer.unobserve(entry.target);
+              } else {
+                //entry.target.timeline.pause(0);
+              }
+            });
+          };
+
+          const options = {
+            root: null,
+            rootMargin: "10% 0% -10% 0%",
+            threshold: 0.2,
+          };
+
+          const observer = new IntersectionObserver(callback, options);
+          const targets = document.querySelectorAll(".anim");
+
+          targets.forEach((target) => {
+            const maskTop = target.querySelectorAll(".mask-container-top");
+            const maskLeft = target.querySelectorAll(".mask-container-left");
+            const maskBtn = target.querySelectorAll(".mask-container");
+            const maskRight = target.querySelectorAll(".mask-container-right");
+            const fadeDown = target.querySelectorAll(".fade-down");
+            // const text = target.querySelectorAll(".text-animate");
+            // const t = new SplitText(target, { type: "chars, lines" });
+
+            const action = gsap
+              .timeline({ paused: true })
+              .from(
+                maskRight,
+                {
+                  clipPath: "inset(0 100% 0 0)",
+                  ease: Expo.easeInOut,
+                  duration: 0.8,
+                },
+                0
+              )
+
+              .from(
+                maskLeft,
+                {
+                  clipPath: "inset(0 0 0 100%)",
+                  ease: Expo.easeInOut,
+                  stagger: 0.2,
+                  duration: 0.9,
+                },
+                0
+              )
+
+              // .from(t.chars, { y: -150, duration: 0.5 })
+              .from(
+                maskBtn,
+                {
+                  clipPath: "inset(0 0 0 100%)",
+                  ease: Expo.easeInOut,
+                  duration: 0.8,
+                },
+                0
+              )
+              .from(
+                maskTop,
+                {
+                  clipPath: "inset(0 0 100% 0)",
+                  ease: Expo.easeInOut,
+                  stagger: 0.2,
+                  duration: 0.9,
+                },
+                0
+              )
+              .from(
+                fadeDown,
+                {
+                  y: -80,
+                  opacity: 0,
+                  duration: 0.9,
+                },
+                0
+              );
+
+            target.timeline = action;
+          });
+
+          Array.prototype.forEach.call(targets, (el) => {
+            observer.observe(el);
+          });
+        },
+      },
+    ],
+    debug: true,
+    sync: true,
+    prefetchIgnore: false,
     transitions: [
       {
         async leave(data) {
@@ -185,26 +202,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   } else {
     // Possibly fall back to a more compatible method here
-  }
-});
-
-var doc = $(document);
-
-doc.scroll(function () {
-  // make sure to wrap yours entire footer in some css selector
-  var footer = $("footer");
-  var p = $(".header__logo");
-  var s = $("header");
-
-  var top = doc.scrollTop() + s.offset().top * 2 + p.height();
-  var footerTop = footer.offset().top;
-
-  var offset = footerTop - top;
-
-  if (offset < 0) {
-    p.css({ "margin-top": "" + offset + "px" });
-  } else {
-    p.css({ "margin-top": 0 });
   }
 });
 
@@ -261,6 +258,27 @@ closeBtn.addEventListener("click", function () {
 });
 
 // console.clear();
+
+///logo
+var doc = $(document);
+
+doc.scroll(function () {
+  // make sure to wrap yours entire footer in some css selector
+  var footer = $("footer");
+  var p = $(".header__logo");
+  var s = $("header");
+
+  var top = doc.scrollTop() + s.offset().top * 2 + p.height();
+  var footerTop = footer.offset().top;
+
+  var offset = footerTop - top;
+
+  if (offset < 0) {
+    p.css({ "margin-top": "" + offset + "px" });
+  } else {
+    p.css({ "margin-top": 0 });
+  }
+});
 
 // window.addEventListener("scroll", function() {
 //   var windowScroll = window.pageYOffset;

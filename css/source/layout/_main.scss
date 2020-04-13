@@ -34,8 +34,8 @@ body {
     }
 
     @include media("<small") {
-      height: 250px;
-      margin-left: 25px;
+      height: 200px;
+      margin-left: 20px;
     }
 
     video,
@@ -119,7 +119,7 @@ img {
     align-self: flex-start;
     @extend %marginLeft;
     @extend %lineLength;
-    padding-bottom: 5px;
+    padding-bottom: 2%;
   }
   &__blocks {
     width: 100%;
@@ -566,6 +566,7 @@ a.button {
   }
 }
 .footer {
+  z-index: 11;
   &__cta {
     @extend %marginBottom;
   }
@@ -764,8 +765,8 @@ a.button {
     }
 
     @include media("<small") {
-      height: 250px;
-      margin-left: 25px;
+      height: 200px;
+      margin-left: 20px;
     }
 
     video,
@@ -1057,7 +1058,7 @@ a.button {
     @extend %marginLeft;
     top: 60%;
     h6 {
-      @extend %xxlarge-next;
+      @extend %xxlarge;
       color: $white;
       font-weight: $demi;
 
@@ -1484,53 +1485,6 @@ a.button {
   overflow: hidden;
   .text {
     position: absolute;
-  }
-  &__asset {
-    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
-    background: black;
-    position: relative;
-    width: 100%;
-    height: 620px;
-    @include media("<=hi") {
-      height: 515px;
-    }
-    @include media("<large") {
-      height: 410px;
-    }
-    @include media("<medium") {
-      height: 320px;
-    }
-
-    @include media("<small") {
-      height: 250px;
-      margin-left: 25px;
-    }
-
-    video,
-    img {
-      position: absolute;
-      z-index: 0;
-      background-size: cover;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-    }
-    img {
-      max-width: auto;
-    }
-  }
-}
-
-.youth-cover {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  .text {
-    position: absolute;
     @extend %marginLeft;
     z-index: 1;
     color: $white;
@@ -1540,6 +1494,10 @@ a.button {
     top: 50%;
     transform: translate(0, -50%);
     line-height: 1.1;
+    @include media("<small") {
+      width: 50%;
+      padding-left: 2%;
+    }
   }
   &__asset {
     background: black;
@@ -1557,13 +1515,12 @@ a.button {
     }
 
     @include media("<small") {
-      height: 250px;
-      margin-left: 25px;
+      height: 200px;
+      margin-left: 20px;
     }
 
     video,
     img {
-      filter: brightness(80%);
       position: absolute;
       z-index: 0;
       background-size: cover;
@@ -1586,9 +1543,12 @@ a.button {
     font-weight: $demi;
     color: $white;
     @extend %medium-feature;
-    margin-left: 10%;
+    @extend %marginLeft;
     width: 60%;
     padding-bottom: 10%;
+    @include media("<medium") {
+      width: 90%;
+    }
   }
   position: relative;
   &__btn {
@@ -1623,6 +1583,7 @@ a.button {
       color: $white;
     }
     .read-more {
+      margin: 3% 0 3% 0;
       a {
         color: $white;
         font-weight: $demi;
@@ -1793,7 +1754,7 @@ a.button {
     @extend %marginLeft;
     top: 60%;
     h6 {
-      @extend %xxlarge-next;
+      @extend %xxlarge;
       color: $white;
       font-weight: $demi;
 
@@ -2298,7 +2259,7 @@ a.button {
 
 .slider {
   background-color: black;
-  .slide-wrapper {
+  #masterWrap {
     overflow: hidden;
 
     width: 100%;
@@ -2380,11 +2341,9 @@ a.button {
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
-          min-width: 100%;
-          min-height: 100%;
+
           // width: auto;
           width: stretch;
-          height: stretch;
         }
       }
     }
@@ -2411,7 +2370,7 @@ a.button {
 
 .slider-article {
   background-color: white;
-  .slide-wrapper {
+  #masterWrap {
     overflow: hidden;
 
     width: 100%;

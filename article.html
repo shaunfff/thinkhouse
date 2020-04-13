@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8" />
-    <title>Thinkhouse</title>
+    <title>Article</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="robots" content="index,follow" />
@@ -10,11 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="/css/build/production.min.css" rel="stylesheet" />
   </head>
-
-  <body>
+  <body data-barba="wrapper">
     <header class="header">
       <div class="container">
-        <div class="header__logo">
+        <div class="header__logo mask-container-top">
           <a href="/"><img src="img/th-vert-white.svg" alt="" /></a>
         </div>
         <div class="header__pnav fade-down">
@@ -58,9 +57,14 @@
             <span></span>
           </a>
         </div>
+        <div class="b-transition">
+          <div class="load-container">
+            <div class="loading-screen"></div>
+          </div>
+        </div>
       </div>
     </header>
-    <main class="main">
+    <main class="main" data-barba="container" data-barba-namespace="article">
       <section class="container">
         <div class="wrapper">
           <div class="article-header top-padding-large">
@@ -92,7 +96,7 @@
               amongst all student target audiences, media and industry.
             </h3>
             <div class="slider-article top-padding-medium">
-              <div class="slide-wrapper">
+              <div id="masterWrap">
                 <div id="panelWrap">
                   <div id="slideWrap">
                     <img src="img/griffith-1.png" alt="" />
@@ -296,9 +300,11 @@
       integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+
     <script src="th/js/libs/gsap.min.js"></script>
-    <script src="th/js/libs/quicklink.umd.js"></script>
+    <script src="th/js/libs/Draggable.min.js"></script>
+    <script src="th/js/libs/InertiaPlugin.min.js"></script>
+
     <script src="th/js/build/slider.js"></script>
     <script src="th/js/build/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>

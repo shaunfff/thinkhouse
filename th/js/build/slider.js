@@ -33,44 +33,68 @@ dotAnim.to(
 );
 dotAnim.time(1);
 
+let dragMe = Draggable.create(container, {
+  type: "x",
+  edgeResistance: 1,
+  snap: offsets,
+  inertia: true,
+  bounds: "#masterWrap",
+  onDrag: tweenDot,
+  onThrowUpdate: tweenDot,
+  onDragEnd: slideAnim,
+  allowNativeTouchScrolling: false,
+  zIndexBoost: false,
+});
+
+dragMe[0].id = "dragger";
 sizeIt();
 
 // main action
 function slideAnim(e) {
   oldSlide = activeSlide;
   // dragging the panels
-  if (gsap.isTweening(container)) {
-    return;
-  }
-  if (this.className === "dot") {
-    activeSlide = this.index;
-    // scrollwheel
+  if (this.id === "dragger") {
+    activeSlide = offsets.indexOf(this.endX);
   } else {
-    activeSlide = e.deltaY > 0 ? (activeSlide += 1) : (activeSlide -= 1);
+    if (gsap.isTweening(container)) {
+      return;
+    }
+    // arrow clicks
+    if (this.id === "leftArrow" || this.id === "rightArrow") {
+      activeSlide =
+        this.id === "rightArrow" ? (activeSlide += 1) : (activeSlide -= 1);
+      // click on a dot
+    } else if (this.className === "dot") {
+      activeSlide = this.index;
+      // scrollwheel
+    } else {
+      activeSlide = e.deltaY > 0 ? (activeSlide += 1) : (activeSlide -= 1);
+    }
   }
-
-  // what slide
+  // make sure we're not past the end or beginning slide
   activeSlide = activeSlide < 0 ? 0 : activeSlide;
   activeSlide =
     activeSlide > slides.length - 1 ? slides.length - 1 : activeSlide;
   if (oldSlide === activeSlide) {
     return;
   }
-
+  // if we're dragging we don't animate the container
   if (this.id != "dragger") {
     gsap.to(container, dur, { x: offsets[activeSlide], onUpdate: tweenDot });
   }
 }
-
 // update the draggable element snap points
+
 function sizeIt() {
-  gsap.set(container, { width: slides.length * iw });
+  offsets = [];
+  // iw = window.innerWidth;
+  gsap.set("#panelWrap", { width: slides.length * iw });
   gsap.set(slides, { width: iw });
   for (let i = 0; i < slides.length; i++) {
     offsets.push(-slides[i].offsetLeft);
   }
   gsap.set(container, { x: offsets[activeSlide] });
-  // dragMe[0].vars.snap = offsets;
+  dragMe[0].vars.snap = offsets;
 }
 
 container.addEventListener("wheel", slideAnim);
